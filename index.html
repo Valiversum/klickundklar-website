@@ -6,7 +6,7 @@
   <title>Klick & Klar – Bald online</title>
   <meta name="description" content="Klick & Klar – Verein für digitale Medienbildung und Social-Media-Kompetenz. Unsere Website ist gerade im Aufbau." />
   <meta property="og:title" content="Klick & Klar – Bald online" />
-  <meta property="og:description" content="Wir bauen hier gerade den besten Social-Media-Kompetenz-Space aller Zeiten." />
+  <meta property="og:description" content="Wir wollen einen österreichweiten Verein aufbauen, der Menschen befähigt, die Kontrolle über ihre digitale Aufmerksamkeit zurückzugewinnen." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/badge.png" />
   <meta property="og:locale" content="de_AT" />
@@ -22,19 +22,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 48px 24px;
+      padding: 64px 24px;
       text-align: center;
       background: var(--color-paper);
     }
-    .soon__logo {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      color: var(--color-black);
-      margin-bottom: 32px;
-    }
-    .soon__logo span { color: var(--color-accent-dark); margin: 0 2px; }
 
     .soon__art {
       width: 100%;
@@ -50,59 +41,39 @@
       50% { transform: translateY(-8px); }
     }
 
-    .soon__quote-wrap {
-      position: relative;
-      max-width: 680px;
-      min-height: 9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .soon__box {
+      text-align: left;
+      max-width: 720px;
+      background: var(--color-white);
+      border: var(--border-thin) solid var(--color-black);
+      border-radius: var(--radius-medium);
+      padding: 44px clamp(24px, 5vw, 56px);
     }
-    .soon__quote {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    .soon__quote.is-active {
-      position: relative;
-      opacity: 1;
-    }
-    .soon__quote blockquote {
-      margin: 0;
+    .soon__box h2 {
       font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: clamp(1.4rem, 4vw, 2.1rem);
-      line-height: 1.35;
+      font-weight: 700;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
       color: var(--color-black);
+      margin: 0 0 20px;
     }
-    .soon__quote blockquote::before { content: "\201C"; color: var(--color-accent-dark); }
-    .soon__quote blockquote::after { content: "\201D"; color: var(--color-accent-dark); }
-    .soon__quote cite {
-      display: block;
-      margin-top: 14px;
-      font-style: normal;
+    .soon__box p {
       font-family: var(--font-body);
-      font-size: 0.9rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
       color: var(--color-muted);
+      margin: 0 0 18px;
     }
+    .soon__box p:last-child { margin-bottom: 0; }
 
-    @media (prefers-reduced-motion: reduce) {
-      .soon__quote { transition: none; }
-    }
-
-    .soon__tagline {
-      margin-top: 56px;
+    .soon__wordmark {
+      margin-top: 40px;
       font-family: var(--font-heading);
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
       color: var(--color-black);
-      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
-      max-width: 520px;
     }
-    .soon__tagline span { color: var(--color-accent-dark); }
+    .soon__wordmark span { color: var(--color-accent-dark); margin: 0 2px; }
 
     .soon__footer {
       margin-top: 48px;
@@ -119,25 +90,33 @@
 <body>
 
   <main class="soon">
-    <div class="soon__logo">Klick <span>&amp;</span> Klar</div>
-
     <img class="soon__art" src="/assets/badge.png" alt="Illustration: Eine Retro-Rakete startet dynamisch aus einem Smartphone" />
 
-    <div class="soon__quote-wrap" id="quote-wrap" aria-live="polite">
-      <div class="soon__quote is-active">
-        <blockquote>A goal without a plan is just a wish.</blockquote>
-      </div>
-      <div class="soon__quote">
-        <blockquote>Wir haben kein Wissensproblem. Wir haben ein Umsetzungsproblem.</blockquote>
-      </div>
-      <div class="soon__quote">
-        <blockquote>The road to hell is paved with good intentions.</blockquote>
-      </div>
+    <div class="soon__box">
+      <h2>Unsere Vision</h2>
+      <p>
+        Wir wollen einen österreichweiten Verein aufbauen, der Menschen befähigt, die
+        Kontrolle über ihre digitale Aufmerksamkeit zurückzugewinnen.
+      </p>
+      <p>
+        Durch Workshops, Vorträge und Bildungsprogramme machen wir die psychologischen und
+        neurologischen Mechanismen hinter Social Media verständlich und zeigen, wie
+        Plattformdesign, Algorithmen und digitale Gewohnheiten unser Verhalten beeinflussen.
+      </p>
+      <p>
+        Unser Ansatz geht über klassische Medienkompetenz hinaus: Wir vermitteln
+        wissenschaftlich fundierte und praktisch anwendbare Strategien, die Menschen dabei
+        helfen, den Intention-Behavior-Gap zu schließen – damit aus dem Vorsatz, digitale
+        Medien bewusster zu nutzen, eine nachhaltige Veränderung im Alltag wird.
+      </p>
+      <p>
+        Unser langfristiges Ziel ist eine Gesellschaft, in der Menschen digitale
+        Technologien nicht nur kompetent bedienen, sondern bewusst, reflektiert und
+        selbstbestimmt nutzen.
+      </p>
     </div>
 
-    <p class="soon__tagline">
-      Wir bauen hier gerade den <span>besten Social-Media-Kompetenz-Space</span> aller Zeiten.
-    </p>
+    <div class="soon__wordmark">Klick <span>&amp;</span> Klar</div>
 
     <div class="soon__footer">
       <a href="mailto:info@klickundklar.at">info@klickundklar.at</a>
@@ -148,6 +127,5 @@
     </div>
   </main>
 
-  <script src="/js/coming-soon.js"></script>
 </body>
 </html>
