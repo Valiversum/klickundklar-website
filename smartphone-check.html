@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitaler Selbstcheck – Klick & Klar</title>
+  <meta name="description" content="Ein kurzer, interaktiver Selbstcheck zu deinem Smartphone-Verhalten: Nutzungszeit, Kontrolle und Wohlbefinden – ohne Diagnose, ohne Datenspeicherung." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/smartphone-check.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main" style="position:absolute;left:-999px;top:0;background:#fff;padding:10px 16px;z-index:1000;">Zum Inhalt springen</a>
+
+  <header class="site-header is-scrolled" id="site-header">
+    <div class="container nav">
+      <a href="/" class="nav__logo" aria-label="Klick & Klar Startseite">
+        <img src="/assets/logo.png" alt="Klick & Klar Logo" />
+      </a>
+      <nav>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="/#ueber-uns">Über uns</a></li>
+          <li><a href="/#workshops">Workshops</a></li>
+          <li><a href="/smartphone-check.html">Selbstcheck</a></li>
+          <li><a href="/#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="nav__cta">
+        <a href="/#kontakt" class="btn btn--dark">Workshop anfragen</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="check" id="check-root" aria-label="Digitaler Selbstcheck">
+
+      <div class="check__bar-track" aria-hidden="true">
+        <div class="check__bar-fill" id="check-bar-fill"></div>
+      </div>
+
+      <div class="check__top">
+        <span class="check__eyebrow">Klick &amp; Klar · Digitaler Selbstcheck</span>
+        <span class="check__progress" id="check-progress" aria-live="polite">1 / 7</span>
+      </div>
+
+      <div class="check__stage" id="check-stage" aria-live="polite">
+        <!-- Wird von js/smartphone-check.js befüllt -->
+        <noscript>
+          <p style="text-align:center;color:var(--muted);max-width:420px;margin:0 auto;">
+            Für den interaktiven Selbstcheck wird JavaScript benötigt.
+          </p>
+        </noscript>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Klick &amp; Klar</span>
+      <span><a href="/impressum.html" style="color:inherit;">Impressum</a> · <a href="/datenschutz.html" style="color:inherit;">Datenschutz</a> · <a href="/" style="color:inherit;">Zur Startseite</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/smartphone-check.js"></script>
+</body>
+</html>
