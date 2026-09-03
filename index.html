@@ -13,7 +13,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <style>
     .soon {
@@ -38,7 +38,7 @@
 
     .soon__art {
       width: 100%;
-      max-width: 280px;
+      max-width: 460px;
       height: auto;
       margin-bottom: 40px;
     }
@@ -94,24 +94,6 @@
       .soon__quote { transition: none; }
     }
 
-    .soon__dots {
-      display: flex;
-      gap: 8px;
-      margin-top: 28px;
-    }
-    .soon__dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-black);
-      opacity: 0.18;
-      transition: opacity 0.3s ease, background 0.3s ease;
-    }
-    .soon__dots span.is-active {
-      background: var(--color-accent-dark);
-      opacity: 1;
-    }
-
     .soon__tagline {
       margin-top: 56px;
       font-family: var(--font-heading);
@@ -151,12 +133,6 @@
       <div class="soon__quote">
         <blockquote>The road to hell is paved with good intentions.</blockquote>
       </div>
-    </div>
-
-    <div class="soon__dots" id="quote-dots" aria-hidden="true">
-      <span class="is-active"></span>
-      <span></span>
-      <span></span>
     </div>
 
     <p class="soon__tagline">
