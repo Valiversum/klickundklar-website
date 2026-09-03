@@ -4,8 +4,9 @@
     {
       "name": "static-site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/valiversum/Documents/Claude/KlickundKlarAT"],
-      "port": 8080
+      "runtimeArgs": ["/Users/valiversum/Documents/Claude/KlickundKlarAT/.claude/serve.py"],
+      "port": 8080,
+      "autoPort": true
     }
   ]
 }
