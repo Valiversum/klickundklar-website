@@ -28,7 +28,7 @@
 .check__bar-fill {
   height: 100%;
   width: 0%;
-  background: var(--teal);
+  background: var(--color-accent);
   border-radius: 999px;
   transition: width 0.35s ease;
 }
@@ -139,7 +139,7 @@
   position: absolute;
   inset: -18px -24px;
   z-index: -1;
-  background-image: radial-gradient(var(--teal) 1px, transparent 1.6px);
+  background-image: radial-gradient(var(--color-accent) 1px, transparent 1.6px);
   background-size: 10px 10px;
   opacity: 0.12;
   border-radius: 18px;
@@ -153,8 +153,8 @@
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--teal) 0%,
-    var(--teal) var(--fill, 0%),
+    var(--color-accent) 0%,
+    var(--color-accent) var(--fill, 0%),
     var(--border) var(--fill, 0%),
     var(--border) 100%
   );
@@ -168,7 +168,7 @@
   height: 28px;
   border-radius: 50%;
   background: #fff;
-  border: 3px solid var(--teal);
+  border: 3px solid var(--color-accent);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
 }
@@ -177,7 +177,7 @@
   height: 28px;
   border-radius: 50%;
   background: #fff;
-  border: 3px solid var(--teal);
+  border: 3px solid var(--color-accent);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
   border-width: 3px;
@@ -189,7 +189,7 @@
 }
 
 .check__slider:focus-visible {
-  outline: 2px solid var(--teal-dark);
+  outline: 2px solid var(--color-accent-dark);
 }
 
 .check__slider-scale {
@@ -261,22 +261,23 @@
 }
 
 .check__option label:hover {
-  border-color: var(--teal);
+  border-color: var(--color-accent);
 }
 
 .check__option input:checked + label {
-  border-color: var(--teal);
-  background: rgba(0, 160, 160, 0.06);
+  border-color: var(--color-accent);
+  border-width: 2px;
+  background: var(--color-accent-tint);
   color: var(--navy);
 }
 .check__option input:checked + label::after {
-  border-color: var(--teal);
-  background: var(--teal);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
   box-shadow: inset 0 0 0 4px #fff;
 }
 
 .check__option input:focus-visible + label {
-  outline: 2px solid var(--teal-dark);
+  outline: 2px solid var(--color-accent-dark);
   outline-offset: 2px;
 }
 
@@ -304,7 +305,7 @@
   gap: 6px;
 }
 .check__back:hover { color: var(--navy); }
-.check__back:focus-visible { outline: 2px solid var(--teal-dark); outline-offset: 3px; border-radius: 6px; }
+.check__back:focus-visible { outline: 2px solid var(--color-accent-dark); outline-offset: 3px; border-radius: 6px; }
 
 .check__next {
   margin-left: auto;
@@ -417,7 +418,7 @@
   background: var(--border);
 }
 .check__dots span.is-filled {
-  background: var(--teal);
+  background: var(--color-accent);
 }
 
 .check__cta {
