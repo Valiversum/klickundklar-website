@@ -32,9 +32,23 @@
       font-size: 1.6rem;
       text-transform: uppercase;
       color: var(--color-black);
-      margin-bottom: 64px;
+      margin-bottom: 32px;
     }
     .soon__logo span { color: var(--color-accent-dark); margin: 0 2px; }
+
+    .soon__art {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      margin-bottom: 40px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .soon__art { animation: soon-float 5s ease-in-out infinite; }
+    }
+    @keyframes soon-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
 
     .soon__quote-wrap {
       position: relative;
@@ -124,6 +138,8 @@
 
   <main class="soon">
     <div class="soon__logo">Klick <span>&amp;</span> Klar</div>
+
+    <img class="soon__art" src="/assets/badge.png" alt="Illustration: Eine Retro-Rakete startet dynamisch aus einem Smartphone" />
 
     <div class="soon__quote-wrap" id="quote-wrap" aria-live="polite">
       <div class="soon__quote is-active">
