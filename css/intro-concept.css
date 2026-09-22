@@ -105,17 +105,20 @@ body.ic-body {
   will-change: auto;
 }
 
-/* Faux-pixelation: an opaque checkerboard mosaic fully covering the
-   content, no blur underneath. Pure CSS background-image, no canvas/JS
-   — costs nothing beyond an opacity transition. */
+/* Real pixelation: a one-off canvas snapshot of the actual content,
+   downscaled then upscaled with imageSmoothingEnabled off (see
+   js/intro-concept.js). Runs once on load, not per-frame, so it costs
+   nothing beyond that single capture plus an opacity transition.
+   Solid paper fallback while the snapshot is prepared / if it fails. */
 .ic-pixelate {
   position: fixed;
   inset: 0;
   z-index: 90;
+  display: block;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  background-image:
-    repeating-conic-gradient(var(--c-black) 0% 25%, var(--c-paper) 0% 50%);
-  background-size: 32px 32px;
+  background: var(--c-paper);
   opacity: 1;
   transition: opacity var(--dur-reveal) var(--ease);
 }
