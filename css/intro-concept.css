@@ -165,33 +165,17 @@ body.ic-body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 64px;
-  height: 64px;
-  margin: -32px 0 0 -32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--c-black);
+  width: 72px;
+  height: auto;
+  margin: -10px 0 0 -18px;
   pointer-events: none;
   z-index: 101;
-  transform: translate3d(-100px, -100px, 0);
-  transition: opacity var(--dur-base) var(--ease), width var(--dur-fast) var(--ease), height var(--dur-fast) var(--ease), margin var(--dur-fast) var(--ease);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ic-cursor::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--c-red);
+  transform: translate3d(-200px, -200px, 0);
+  transition: opacity var(--dur-base) var(--ease), width var(--dur-fast) var(--ease);
 }
 .ic-cursor.ic-cursor--hover {
-  width: 88px;
-  height: 88px;
-  margin: -44px 0 0 -44px;
-  background: var(--c-black);
+  width: 84px;
 }
-.ic-cursor.ic-cursor--hover::after { background: var(--c-paper); }
 .ic-body.ic-revealed .ic-cursor,
 .ic-body.ic-no-fine-pointer .ic-cursor {
   opacity: 0;
@@ -500,4 +484,61 @@ body.ic-body {
   color: var(--c-muted);
   max-width: var(--container);
   margin: 0 auto;
+}
+.ic-footer a:hover { color: var(--c-red); }
+
+/* ==========================================================================
+   Vision One-Pager (index.html)
+   ========================================================================== */
+
+.ic-onepager {
+  padding: clamp(48px, 10vw, 120px) var(--gutter) clamp(64px, 12vw, 140px);
+}
+.ic-onepager__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  max-width: 760px;
+}
+.ic-onepager__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  margin-bottom: 20px;
+}
+.ic-onepager__title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 40px;
+}
+.ic-onepager__lead p {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--c-black);
+  margin: 0 0 28px;
+}
+.ic-onepager__lead p:last-child { margin-bottom: 0; }
+
+.ic-onepager__principle {
+  margin: 64px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--c-border);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+.ic-onepager__principle span { color: var(--c-red); }
+
+.ic-onepager__soon {
+  margin-top: 56px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted);
 }

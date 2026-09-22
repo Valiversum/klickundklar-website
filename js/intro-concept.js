@@ -1,5 +1,5 @@
-// Klick & Klar — Intro/Reveal Concept Prototype
-// Vanilla JS, no dependencies. Blur-to-clear reveal + custom cursor
+// Klick & Klar — Intro/Reveal
+// Vanilla JS, no dependencies. Blur-to-clear reveal + custom image cursor
 // on fine-pointer devices only. Cleans itself up after the reveal so
 // it costs nothing once the real content is visible.
 
