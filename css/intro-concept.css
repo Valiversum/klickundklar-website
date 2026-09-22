@@ -165,16 +165,25 @@ body.ic-body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 72px;
-  height: auto;
-  margin: -10px 0 0 -18px;
+  width: 28px;
+  height: 28px;
+  margin: -3px 0 0 -3px;
   pointer-events: none;
   z-index: 101;
   transform: translate3d(-200px, -200px, 0);
-  transition: opacity var(--dur-base) var(--ease), width var(--dur-fast) var(--ease);
+  transition: opacity var(--dur-base) var(--ease), width var(--dur-fast) var(--ease), height var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  color: var(--c-black);
+}
+.ic-cursor path {
+  fill: currentColor;
+  stroke: var(--c-paper);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
 }
 .ic-cursor.ic-cursor--hover {
-  width: 84px;
+  width: 34px;
+  height: 34px;
+  color: var(--c-red);
 }
 .ic-body.ic-revealed .ic-cursor,
 .ic-body.ic-no-fine-pointer .ic-cursor {
@@ -509,10 +518,10 @@ body.ic-body {
   margin-bottom: 20px;
 }
 .ic-onepager__title {
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.15;
   margin: 0 0 40px;
 }
 .ic-onepager__lead p {
