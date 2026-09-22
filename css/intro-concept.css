@@ -102,32 +102,26 @@ body.ic-body {
    ========================================================================== */
 
 .ic-content {
-  filter: blur(6px);
-  transition: filter var(--dur-reveal) var(--ease);
-  will-change: filter;
+  will-change: auto;
 }
-.ic-body.ic-revealed .ic-content {
-  filter: blur(0);
-}
-.ic-body.ic-revealed .ic-content { will-change: auto; }
 
-/* Faux-pixelation: a static checkerboard mosaic layered over the light
-   blur. Pure CSS background-image, no canvas/JS — costs nothing beyond
-   an opacity transition. */
+/* Faux-pixelation: an opaque checkerboard mosaic fully covering the
+   content, no blur underneath. Pure CSS background-image, no canvas/JS
+   — costs nothing beyond an opacity transition. */
 .ic-pixelate {
   position: fixed;
   inset: 0;
   z-index: 90;
   pointer-events: none;
   background-image:
-    repeating-conic-gradient(var(--c-black) 0% 25%, transparent 0% 50%);
+    repeating-conic-gradient(var(--c-black) 0% 25%, var(--c-paper) 0% 50%);
   background-size: 32px 32px;
-  opacity: 0.12;
-  mix-blend-mode: multiply;
+  opacity: 1;
   transition: opacity var(--dur-reveal) var(--ease);
 }
 .ic-body.ic-revealed .ic-pixelate {
   opacity: 0;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
