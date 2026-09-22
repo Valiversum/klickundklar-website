@@ -16,32 +16,149 @@
   <link rel="apple-touch-icon" href="/assets/favicon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <style>
     .soon {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 64px 24px;
+      padding: 0 24px 64px;
       text-align: center;
       background: var(--color-paper);
     }
 
+    /* ---------- Poster-Hero: Swiss-Grid + Kinetic-Type-Wortmarke ---------- */
+
+    .poster {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 8px 56px;
+    }
+
+    .poster__labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .poster__label {
+      text-align: left;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      line-height: 1.6;
+      color: var(--color-black);
+    }
+    .poster__label--right { text-align: right; }
+    .poster__label span { display: block; }
+    .poster__label::after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: var(--border-thin);
+      background: var(--color-black);
+      margin-top: 8px;
+    }
+    .poster__label--right::after { margin-left: auto; }
+
+    .poster__cross {
+      align-self: center;
+      font-size: 1.1rem;
+      color: var(--color-black);
+      line-height: 1;
+    }
+
+    .poster__circle {
+      position: absolute;
+      top: 78px;
+      right: 4%;
+      width: 130px;
+      height: 130px;
+      border: var(--border-thin) solid var(--color-black);
+      border-radius: 50%;
+      opacity: 0.85;
+    }
+
+    .poster__type {
+      position: relative;
+      margin: 24px auto;
+      width: 100%;
+    }
+
+    .poster__type-melt {
+      position: relative;
+      height: clamp(220px, 34vw, 340px);
+    }
+    .poster__type-melt span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-weight: 800;
+      font-size: clamp(2.6rem, 10vw, 6.4rem);
+      line-height: 1;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+      color: var(--color-black);
+      transform-origin: top center;
+    }
+    .poster__type-melt span:nth-child(1) { top: 0; opacity: 1; transform: translateY(0) scaleY(1); }
+    .poster__type-melt span:nth-child(2) { top: 26px; opacity: 0.85; transform: translateY(0) scaleY(1.12) skewX(-1deg); filter: blur(0.3px); }
+    .poster__type-melt span:nth-child(3) { top: 52px; opacity: 0.65; transform: translateY(0) scaleY(1.28) skewX(-2deg); filter: blur(0.6px); }
+    .poster__type-melt span:nth-child(4) { top: 78px; opacity: 0.45; transform: translateY(0) scaleY(1.48) skewX(-2.5deg); filter: blur(0.9px); }
+    .poster__type-melt span:nth-child(5) { top: 104px; opacity: 0.28; transform: translateY(0) scaleY(1.7) skewX(-3deg); filter: blur(1.2px); }
+    .poster__type-melt span:nth-child(6) { top: 130px; opacity: 0.14; transform: translateY(0) scaleY(1.95) skewX(-3.5deg); filter: blur(1.6px); }
+    .poster__type-melt span:nth-child(7) { top: 156px; opacity: 0.06; transform: translateY(0) scaleY(2.2) skewX(-4deg); filter: blur(2px); }
+
+    .poster__type-clean {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 5.2vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--color-black);
+      margin: 0;
+    }
+
+    .poster__type-echo {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .poster__type-echo span {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 5.2vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--color-black);
+    }
+    .poster__type-echo span:nth-child(1) { opacity: 0.35; filter: blur(0.4px); }
+    .poster__type-echo span:nth-child(2) { opacity: 0.16; filter: blur(0.8px); }
+    .poster__type-echo span:nth-child(3) { opacity: 0.07; filter: blur(1.2px); }
+
+    @media (max-width: 640px) {
+      .poster { min-height: auto; padding: 28px 4px 40px; gap: 48px; }
+      .poster__labels { display: none; }
+      .poster__circle { display: none; }
+      .poster__type-melt { height: clamp(160px, 46vw, 220px); }
+    }
+
+    /* ---------- Inhalt unter dem Poster ---------- */
+
     .soon__art {
       width: 100%;
-      max-width: 460px;
+      max-width: 260px;
       height: auto;
-      margin-bottom: 40px;
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      .soon__art { animation: soon-float 5s ease-in-out infinite; }
-    }
-    @keyframes soon-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      margin: 8px 0 40px;
+      opacity: 0.9;
     }
 
     .soon__box {
@@ -77,7 +194,7 @@
       line-height: 1.5;
       color: var(--color-black);
     }
-    .soon__principle span { color: var(--color-accent-dark); }
+    .soon__principle span { font-style: italic; }
 
     .soon__wordmark {
       margin-top: 40px;
@@ -87,7 +204,7 @@
       text-transform: uppercase;
       color: var(--color-black);
     }
-    .soon__wordmark span { color: var(--color-accent-dark); margin: 0 2px; }
+    .soon__wordmark span { font-style: italic; margin: 0 2px; }
 
     .soon__footer {
       margin-top: 48px;
@@ -98,7 +215,7 @@
       color: var(--color-muted);
       text-decoration: underline;
     }
-    .soon__footer a:hover { color: var(--color-accent-dark); }
+    .soon__footer a:hover { color: var(--color-black); }
 
     .soon__download {
       margin-top: 20px;
@@ -111,12 +228,58 @@
       text-underline-offset: 3px;
       font-weight: 600;
     }
-    .soon__download a:hover { color: var(--color-accent-dark); }
+    .soon__download a:hover { color: var(--color-muted); }
   </style>
 </head>
 <body>
 
   <main class="soon">
+
+    <section class="poster" aria-label="Klick & Klar">
+      <div class="poster__labels">
+        <div class="poster__label">
+          <span>Weniger</span><span>kompliziert</span><span>mehr möglich</span>
+        </div>
+        <div class="poster__label poster__label--right">
+          <span>Ideen</span><span>Workshops</span><span>Menschen</span>
+        </div>
+      </div>
+
+      <span class="poster__cross" aria-hidden="true">+</span>
+
+      <div class="poster__type">
+        <div class="poster__circle" aria-hidden="true"></div>
+
+        <div class="poster__type-melt" aria-hidden="true">
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+        </div>
+
+        <h1 class="poster__type-clean">klickundklar.at</h1>
+        <div class="poster__type-echo" aria-hidden="true">
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+          <span>klickundklar.at</span>
+        </div>
+      </div>
+
+      <span class="poster__cross" aria-hidden="true">+</span>
+
+      <div class="poster__labels">
+        <div class="poster__label">
+          <span>Ein</span><span>klarerer</span><span>Alltag</span>
+        </div>
+        <div class="poster__label poster__label--right">
+          <span>Mehr Zeit</span><span>für das</span><span>Wesentliche</span>
+        </div>
+      </div>
+    </section>
+
     <img class="soon__art" src="/assets/badge.png" alt="Illustration: Eine Retro-Rakete startet dynamisch aus einem Smartphone" />
 
     <div class="soon__box">
