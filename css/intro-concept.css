@@ -121,7 +121,7 @@ body.ic-body {
   pointer-events: none;
   background-image:
     repeating-conic-gradient(var(--c-black) 0% 25%, transparent 0% 50%);
-  background-size: 14px 14px;
+  background-size: 32px 32px;
   opacity: 0.12;
   mix-blend-mode: multiply;
   transition: opacity var(--dur-reveal) var(--ease);
