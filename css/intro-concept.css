@@ -127,26 +127,40 @@ body.ic-body {
 }
 
 .ic-entry {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   font-family: var(--font);
   font-weight: 700;
   font-size: clamp(1.1rem, 3vw, 1.6rem);
   letter-spacing: 0.02em;
   background: var(--c-paper);
-  color: var(--c-black);
   border: 2px solid var(--c-black);
   border-radius: 0;
   padding: 22px 44px;
   cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease),
-              background var(--dur-fast) var(--ease),
-              color var(--dur-fast) var(--ease);
+  transition: transform var(--dur-fast) var(--ease);
   transform-origin: center;
 }
-.ic-entry:hover {
-  background: var(--c-black);
-  color: var(--c-paper);
-}
 .ic-entry:active { transform: scale(0.96); }
+
+.ic-entry__fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: var(--c-black);
+  transition: width 3s linear;
+  z-index: 0;
+}
+.ic-entry:hover .ic-entry__fill {
+  width: 100%;
+}
+.ic-entry__label {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  mix-blend-mode: difference;
+}
 
 .ic-body.ic-activating .ic-entry {
   transition: transform var(--dur-reveal) var(--ease), opacity var(--dur-reveal) var(--ease);
@@ -158,6 +172,7 @@ body.ic-body {
   .ic-content { transition: none; }
   .ic-intro { transition: none; }
   .ic-entry, .ic-body.ic-activating .ic-entry { transition: opacity var(--dur-fast) linear; transform: none; }
+  .ic-entry__fill { transition: none; }
 }
 
 /* Custom cursor — desktop / fine pointer only, intro phase only */
