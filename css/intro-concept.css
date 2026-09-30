@@ -105,30 +105,23 @@ body.ic-body {
   will-change: auto;
 }
 
-/* Real pixelation: a one-off canvas snapshot of the actual content,
-   downscaled then upscaled with imageSmoothingEnabled off (see
-   js/intro-concept.js). Runs once on load, not per-frame, so it costs
-   nothing beyond that single capture plus an opacity transition.
-   Solid paper fallback while the snapshot is prepared / if it fails. */
-.ic-pixelate {
+/* Solid intro cover — hides the content until the reveal, fading out
+   as a plain color rather than any pixel/blur effect. */
+.ic-cover {
   position: fixed;
   inset: 0;
   z-index: 90;
-  display: block;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
   background: var(--c-paper);
   opacity: 1;
   transition: opacity var(--dur-reveal) var(--ease);
 }
-.ic-body.ic-revealed .ic-pixelate {
+.ic-body.ic-revealed .ic-cover {
   opacity: 0;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ic-pixelate { transition: none; }
+  .ic-cover { transition: none; }
 }
 
 .ic-intro {
