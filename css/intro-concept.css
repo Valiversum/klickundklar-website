@@ -147,39 +147,23 @@ body.ic-body {
 }
 
 .ic-entry {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
   font-family: var(--font);
   font-weight: 700;
   font-size: clamp(1.1rem, 3vw, 1.6rem);
   letter-spacing: 0.02em;
   background: var(--c-paper);
+  color: var(--c-black);
   border: 2px solid var(--c-black);
   border-radius: 0;
   padding: 22px 44px;
-  cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease);
+  cursor: default;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   transform-origin: center;
 }
-.ic-entry:active { transform: scale(0.96); }
-
-.ic-entry__fill {
-  position: absolute;
-  inset: 0;
-  width: 0%;
+.ic-entry--pressed {
+  transform: scale(0.94);
   background: var(--c-black);
-  transition: width 3s linear;
-  z-index: 0;
-}
-.ic-entry:hover .ic-entry__fill {
-  width: 100%;
-}
-.ic-entry__label {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  mix-blend-mode: difference;
+  color: var(--c-paper);
 }
 
 .ic-body.ic-activating .ic-entry {
@@ -192,10 +176,10 @@ body.ic-body {
   .ic-content { transition: none; }
   .ic-intro { transition: none; }
   .ic-entry, .ic-body.ic-activating .ic-entry { transition: opacity var(--dur-fast) linear; transform: none; }
-  .ic-entry__fill { transition: none; }
 }
 
-/* Custom cursor — desktop / fine pointer only, intro phase only */
+/* Animated cursor — moves to the button and "clicks" it automatically,
+   then disappears. Not tied to the real pointer. */
 .ic-cursor {
   position: fixed;
   top: 0;
@@ -220,14 +204,8 @@ body.ic-body {
   height: 34px;
   color: var(--c-red);
 }
-.ic-body.ic-revealed .ic-cursor,
-.ic-body.ic-no-fine-pointer .ic-cursor {
+.ic-body.ic-revealed .ic-cursor {
   opacity: 0;
-}
-
-.ic-body.ic-hide-native-cursor,
-.ic-body.ic-hide-native-cursor .ic-entry {
-  cursor: none;
 }
 
 /* ==========================================================================
@@ -244,7 +222,8 @@ body.ic-body {
 .ic-nav__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 40px;
   padding: 20px var(--gutter);
   max-width: var(--container);
   margin: 0 auto;
