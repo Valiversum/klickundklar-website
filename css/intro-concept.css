@@ -623,26 +623,37 @@ body.ic-body {
   color: var(--c-black);
 }
 
-.ic-workshop__body::after {
-  content: "";
-  display: table;
-  clear: both;
+/* Workshops with an image: image column sits left of the text, full
+   card, stretched to match the text column's height. */
+.ic-workshop--with-image {
+  grid-template-columns: 64px 200px 1fr;
+  grid-template-areas: "num image body";
+  gap: 24px;
+  align-items: stretch;
 }
+.ic-workshop--with-image .ic-workshop__num { grid-area: num; }
+.ic-workshop--with-image .ic-workshop__body { grid-area: body; }
 
 .ic-workshop__image {
+  grid-area: image;
   display: block;
-  float: left;
-  width: 160px;
-  height: auto;
-  margin: 4px 24px 12px 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border: 1px solid var(--c-border);
 }
 
 @media (max-width: 719px) {
+  .ic-workshop--with-image {
+    grid-template-columns: 36px 1fr;
+    grid-template-areas:
+      "num num"
+      "image image"
+      "body body";
+    gap: 16px;
+  }
   .ic-workshop__image {
-    float: none;
-    width: 140px;
-    margin: 0 0 20px;
+    height: 200px;
   }
 }
 
