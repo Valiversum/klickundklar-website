@@ -702,10 +702,27 @@ body.ic-body {
   padding-bottom: 2px;
 }
 
-.ic-workshop--placeholder .ic-workshop__desc {
-  color: var(--c-muted);
-}
-
 @media (max-width: 719px) {
   .ic-workshop { grid-template-columns: 36px 1fr; }
+}
+
+/* Visual break before workshops outside the numbered series */
+.ic-workshops-other {
+  margin-top: 24px;
+  padding-top: 48px;
+  border-top: 3px double var(--c-border);
+}
+.ic-workshops-other__label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-bottom: 24px;
+}
+.ic-workshop--other {
+  grid-template-columns: 1fr;
+  padding: 0;
+  border: none;
 }
