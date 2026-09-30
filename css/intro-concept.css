@@ -678,6 +678,20 @@ body.ic-body {
   margin-bottom: 6px;
 }
 
+.ic-workshop__book {
+  margin: 20px 0 0;
+}
+.ic-workshop__book a {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-black);
+  border-bottom: 1.5px solid var(--c-red);
+  padding-bottom: 2px;
+}
+.ic-workshop__book a:hover { color: var(--c-red); }
+
 .ic-workshop--placeholder .ic-workshop__desc {
   color: var(--c-muted);
 }
