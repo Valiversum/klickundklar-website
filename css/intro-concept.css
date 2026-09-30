@@ -692,6 +692,16 @@ body.ic-body {
 }
 .ic-workshop__book a:hover { color: var(--c-red); }
 
+.ic-workshop__book--pending {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-muted);
+  border-bottom: 1.5px dashed var(--c-muted);
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
 .ic-workshop--placeholder .ic-workshop__desc {
   color: var(--c-muted);
 }
