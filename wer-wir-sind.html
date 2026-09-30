@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Klick &amp; Klar — Website coming soon</title>
-  <meta name="description" content="Klick & Klar: Verein für digitale Medienkompetenz. Unsere Vision — die Website folgt in Kürze." />
+  <title>Wer wir sind — Klick &amp; Klar</title>
+  <meta name="description" content="Klick & Klar: unsere Vision und das Team dahinter." />
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png" />
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -13,28 +13,15 @@
 </head>
 <body class="ic-body">
 
-  <!-- ============ Intro-Overlay ============ -->
-  <div class="ic-intro" id="ic-intro">
-    <button type="button" class="ic-entry" id="ic-entry" aria-label="Website betreten und Inhalt scharf stellen">
-      KLICK &amp; KLAR
-    </button>
-  </div>
-  <svg class="ic-cursor" id="ic-cursor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <path d="M3 3l7.07 16.97 2.51-7.39L20 10.07 3 3z" />
-  </svg>
-  <div class="ic-cover" id="ic-cover" aria-hidden="true"></div>
-
-  <!-- ============ Website-Inhalt (immer im DOM, nur visuell unscharf) ============ -->
   <div class="ic-content" id="ic-content">
 
     <header class="ic-nav">
       <div class="ic-nav__row">
         <a href="/" class="ic-nav__mark">Klick &amp; Klar</a>
-        <!-- Weitere Unterseiten werden hier verlinkt, sobald sie live gehen. -->
         <nav aria-label="Hauptnavigation">
           <ul class="ic-nav__links" id="nav-links">
             <li><a href="/workshops.html">Workshops</a></li>
-            <li><a href="/wer-wir-sind.html">Wer wir sind</a></li>
+            <li><a href="/wer-wir-sind.html" aria-current="page">Wer wir sind</a></li>
             <li><a href="/initiativen.html">Initiativen</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
             <li><a href="/lernmaterial.html">Lernmaterial</a></li>
@@ -77,7 +64,34 @@
             Klick &amp; Klar macht aus Vorsatz Handlung.
           </p>
 
-          <p class="ic-onepager__soon">Website coming soon</p>
+          <div class="ic-team">
+            <span class="ic-onepager__eyebrow">Wer wir sind</span>
+            <h2 class="ic-team__title">Das Team</h2>
+            <p class="ic-team__lead">Die Gesichter hinter Klick &amp; Klar folgen in Kürze.</p>
+
+            <div class="ic-team__grid">
+              <div class="ic-team__member">
+                <div class="ic-team__photo" aria-hidden="true">Foto folgt</div>
+                <p class="ic-team__name">Name folgt</p>
+                <p class="ic-team__role">Rolle folgt</p>
+              </div>
+              <div class="ic-team__member">
+                <div class="ic-team__photo" aria-hidden="true">Foto folgt</div>
+                <p class="ic-team__name">Name folgt</p>
+                <p class="ic-team__role">Rolle folgt</p>
+              </div>
+              <div class="ic-team__member">
+                <div class="ic-team__photo" aria-hidden="true">Foto folgt</div>
+                <p class="ic-team__name">Name folgt</p>
+                <p class="ic-team__role">Rolle folgt</p>
+              </div>
+              <div class="ic-team__member">
+                <div class="ic-team__photo" aria-hidden="true">Foto folgt</div>
+                <p class="ic-team__name">Name folgt</p>
+                <p class="ic-team__role">Rolle folgt</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -95,6 +109,5 @@
 
   </div>
 
-  <script src="/js/intro-concept.js"></script>
 </body>
 </html>

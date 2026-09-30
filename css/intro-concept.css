@@ -214,9 +214,10 @@ body.ic-body {
 }
 .ic-nav__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  gap: 40px;
+  gap: 12px 40px;
   padding: 20px var(--gutter);
   max-width: var(--container);
   margin: 0 auto;
@@ -228,7 +229,8 @@ body.ic-body {
 }
 .ic-nav__links {
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 12px 32px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -254,7 +256,8 @@ body.ic-body {
 .ic-nav__links a:hover::after { width: 100%; }
 
 @media (max-width: 719px) {
-  .ic-nav__links { gap: 18px; }
+  .ic-nav__links { gap: 10px 18px; }
+  .ic-nav__row { gap: 10px 18px; }
 }
 
 /* ==========================================================================
@@ -725,4 +728,68 @@ body.ic-body {
   grid-template-columns: 1fr;
   padding: 0;
   border: none;
+}
+
+/* ==========================================================================
+   Team section (Wer wir sind)
+   ========================================================================== */
+
+.ic-team {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 3px double var(--c-border);
+}
+.ic-team__title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+.ic-team__lead {
+  font-size: 1rem;
+  color: var(--c-muted);
+  margin: 0 0 40px;
+}
+
+.ic-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+@media (max-width: 1079px) {
+  .ic-team__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 479px) {
+  .ic-team__grid { grid-template-columns: 1fr; }
+}
+
+.ic-team__photo {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  margin-bottom: 16px;
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  background: var(--c-paper);
+  overflow: hidden;
+}
+.ic-team__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ic-team__name {
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.ic-team__role {
+  font-size: 0.85rem;
+  color: var(--c-muted);
+  margin: 0;
 }
