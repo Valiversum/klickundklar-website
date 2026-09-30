@@ -805,3 +805,40 @@ body.ic-body {
   color: var(--c-muted);
   margin: 0;
 }
+
+/* ==========================================================================
+   Social media placeholder (Kontakt)
+   ========================================================================== */
+
+.ic-social {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 3px double var(--c-border);
+}
+.ic-social__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  max-width: 420px;
+}
+.ic-social__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--c-border);
+}
+.ic-social__list .ic-social__item:last-child {
+  border-bottom: 1px solid var(--c-border);
+}
+.ic-social__name {
+  font-weight: 700;
+}
+.ic-social__status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
