@@ -623,13 +623,27 @@ body.ic-body {
   color: var(--c-black);
 }
 
+.ic-workshop__body::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .ic-workshop__image {
   display: block;
-  width: 100%;
-  max-width: 420px;
+  float: left;
+  width: 160px;
   height: auto;
-  margin: 0 0 24px;
+  margin: 4px 24px 12px 0;
   border: 1px solid var(--c-border);
+}
+
+@media (max-width: 719px) {
+  .ic-workshop__image {
+    float: none;
+    width: 140px;
+    margin: 0 0 20px;
+  }
 }
 
 .ic-workshop__desc {
