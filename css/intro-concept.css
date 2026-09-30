@@ -202,6 +202,20 @@ body.ic-body {
 }
 
 /* ==========================================================================
+   Under-construction banner
+   ========================================================================== */
+
+.ic-banner {
+  background: var(--c-red);
+  color: var(--c-paper);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 10px var(--gutter);
+}
+
+/* ==========================================================================
    Navigation
    ========================================================================== */
 
@@ -524,6 +538,43 @@ body.ic-body {
 
 .ic-onepager {
   padding: clamp(48px, 10vw, 120px) var(--gutter) clamp(64px, 12vw, 140px);
+}
+
+/* ==========================================================================
+   Landing hero (index.html)
+   ========================================================================== */
+
+.ic-hero-landing {
+  padding: clamp(64px, 16vw, 180px) var(--gutter) clamp(80px, 16vw, 160px);
+}
+.ic-hero-landing__title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+.ic-hero-landing__subtitle {
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  color: var(--c-muted);
+  margin: 0 0 40px;
+}
+
+.ic-btn {
+  display: inline-block;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  background: var(--c-paper);
+  color: var(--c-black);
+  border: 2px solid var(--c-black);
+  padding: 16px 36px;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.ic-btn:hover {
+  background: var(--c-black);
+  color: var(--c-paper);
 }
 .ic-onepager__inner {
   max-width: var(--container);
