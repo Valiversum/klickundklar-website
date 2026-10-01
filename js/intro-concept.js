@@ -1,15 +1,13 @@
 // Klick & Klar — Intro/Reveal
 // A cursor animates to the entry button and "clicks" it automatically
-// (~1.2s), then a solid-color cover fades out to reveal the real page.
-// Cleans itself up afterwards so it costs nothing once the content is
-// visible.
+// (~1.2s), then the blurred page behind it sharpens into view. Cleans
+// itself up afterwards so it costs nothing once the content is visible.
 
 (() => {
   const body = document.body;
   const entry = document.getElementById("ic-entry");
   const intro = document.getElementById("ic-intro");
   const cursor = document.getElementById("ic-cursor");
-  const cover = document.getElementById("ic-cover");
   if (!entry || !intro || !cursor) return;
 
   const prefersReducedMotion = window.matchMedia(
@@ -34,7 +32,6 @@
     window.setTimeout(() => {
       intro.hidden = true;
       cursor.remove();
-      if (cover) cover.remove();
     }, cleanupDelay);
   }
 

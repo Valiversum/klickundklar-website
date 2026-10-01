@@ -102,26 +102,13 @@ body.ic-body {
    ========================================================================== */
 
 .ic-content {
+  filter: blur(16px);
+  transition: filter var(--dur-reveal) var(--ease);
+  will-change: filter;
+}
+.ic-body.ic-revealed .ic-content {
+  filter: blur(0);
   will-change: auto;
-}
-
-/* Solid intro cover — hides the content until the reveal, fading out
-   as a plain color rather than any pixel/blur effect. */
-.ic-cover {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  background: var(--c-paper);
-  opacity: 1;
-  transition: opacity var(--dur-reveal) var(--ease);
-}
-.ic-body.ic-revealed .ic-cover {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ic-cover { transition: none; }
 }
 
 .ic-intro {
