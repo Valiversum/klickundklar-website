@@ -126,6 +126,16 @@ body.ic-body {
   transition: opacity var(--dur-base) var(--ease);
 }
 
+/* No intro on mobile/narrow screens — content shows immediately,
+   sharp, no blur/cursor/button. Desktop-only experience. */
+@media (max-width: 719px) {
+  .ic-content--intro { filter: none !important; }
+  .ic-intro,
+  .ic-cursor {
+    display: none !important;
+  }
+}
+
 .ic-entry {
   font-family: var(--font);
   font-weight: 700;

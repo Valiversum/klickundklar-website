@@ -1,6 +1,8 @@
 // Klick & Klar — Intro/Reveal
-// A cursor animates to the entry button and "clicks" it automatically
-// (~1.2s), then the blurred page behind it sharpens into view. Cleans
+// Desktop-only: a cursor animates to the entry button and "clicks" it
+// automatically (~1.2s), then the blurred page behind it sharpens into
+// view. On mobile/narrow screens the intro is skipped entirely (see
+// the matching CSS media query) — content shows immediately. Cleans
 // itself up afterwards so it costs nothing once the content is visible.
 
 (() => {
@@ -13,6 +15,7 @@
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
+  const isMobile = window.matchMedia("(max-width: 719px)").matches;
 
   let revealed = false;
 
@@ -27,7 +30,7 @@
     body.classList.add("ic-activating");
     body.classList.add("ic-revealed");
 
-    const cleanupDelay = prefersReducedMotion ? 50 : 620;
+    const cleanupDelay = prefersReducedMotion || isMobile ? 0 : 620;
 
     window.setTimeout(() => {
       intro.hidden = true;
@@ -51,9 +54,9 @@
   // to the real pointer.
   // ---------------------------------------------------------------------
 
-  if (prefersReducedMotion) {
+  if (prefersReducedMotion || isMobile) {
     cursor.style.display = "none";
-    window.setTimeout(reveal, 150);
+    window.setTimeout(reveal, isMobile ? 0 : 150);
     return;
   }
 
