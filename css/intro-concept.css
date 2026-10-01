@@ -610,6 +610,11 @@ body.ic-body {
   background: var(--c-black);
   color: var(--c-paper);
 }
+button.ic-btn { cursor: pointer; }
+.ic-btn--block {
+  flex: 1 1 0;
+  text-align: center;
+}
 .ic-onepager__inner {
   max-width: var(--container);
   margin: 0 auto;
@@ -926,4 +931,145 @@ body.ic-body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--c-muted);
+}
+
+/* ==========================================================================
+   Quiz teaser (Lernmaterial)
+   ========================================================================== */
+
+.ic-quiz-teaser {
+  margin-top: 64px;
+  padding: 40px;
+  border: 1px solid var(--c-border);
+}
+.ic-quiz-teaser__title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+.ic-quiz-teaser__desc {
+  color: var(--c-muted);
+  margin: 0 0 28px;
+  max-width: 520px;
+}
+
+@media (max-width: 719px) {
+  .ic-quiz-teaser { padding: 28px 24px; }
+}
+
+/* ==========================================================================
+   KI oder Real? quiz
+   ========================================================================== */
+
+.ic-quiz { max-width: 560px; }
+
+.ic-quiz__stage .ic-onepager__title { margin-top: 0; }
+
+.ic-quiz__progress {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  margin-bottom: 16px;
+}
+
+.ic-quiz__caption {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.ic-quiz__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--c-border);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.ic-quiz__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ic-quiz__photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--c-paper),
+    var(--c-paper) 10px,
+    rgba(16, 16, 16, 0.04) 10px,
+    rgba(16, 16, 16, 0.04) 20px
+  );
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.ic-quiz__photo--correct { border: 3px solid var(--c-black); }
+.ic-quiz__photo--wrong { border: 3px solid var(--c-red); }
+
+.ic-quiz__actions {
+  display: flex;
+  gap: 16px;
+}
+.ic-quiz__actions[hidden] { display: none; }
+
+.ic-quiz__feedback-result {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.ic-quiz__feedback-source {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  margin: 0 0 28px;
+  word-break: break-word;
+}
+.ic-quiz__feedback-source a { color: var(--c-red); }
+
+.ic-quiz__score {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 40px;
+}
+
+.ic-quiz__sources {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+}
+.ic-quiz__source-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-top: 1px solid var(--c-border);
+}
+.ic-quiz__sources .ic-quiz__source-item:last-child {
+  border-bottom: 1px solid var(--c-border);
+}
+.ic-quiz__source-caption { font-weight: 600; }
+.ic-quiz__source-link { font-size: 0.9rem; word-break: break-word; }
+.ic-quiz__source-link a { color: var(--c-red); }
+
+.ic-quiz__explain-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--c-black);
+  margin: 0 0 32px;
+}
+
+.ic-quiz__end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 479px) {
+  .ic-quiz__actions { flex-direction: column; }
 }

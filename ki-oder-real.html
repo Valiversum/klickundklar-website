@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI oder Real? — Klick &amp; Klar</title>
+  <meta name="description" content="10 Fotos. Echt oder KI-generiert? Teste dein Gespür für Fälschungen." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="stylesheet" href="/css/intro-concept.css" />
+</head>
+<body class="ic-body">
+
+  <div class="ic-content" id="ic-content">
+
+    <header class="ic-nav">
+      <div class="ic-nav__row">
+        <a href="/" class="ic-nav__mark">Klick &amp; Klar</a>
+        <button type="button" class="ic-nav__toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="ic-nav__menu" aria-label="Hauptnavigation">
+          <ul class="ic-nav__links" id="nav-links">
+            <li><a href="/wer-wir-sind.html">Wer wir sind</a></li>
+            <li><a href="/workshops.html">Workshops</a></li>
+            <li><a href="/initiativen.html">Initiativen</a></li>
+            <li><a href="/lernmaterial.html">Lernmaterial</a></li>
+            <li><a href="/kontakt.html" class="ic-nav__cta">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="ic-onepager">
+        <div class="ic-onepager__inner ic-quiz" id="quiz-root">
+
+          <!-- ============ Intro ============ -->
+          <div class="ic-quiz__stage" id="stage-intro">
+            <span class="ic-onepager__eyebrow">Lernmaterial</span>
+            <h1 class="ic-onepager__title">KI oder Real?</h1>
+            <div class="ic-onepager__lead">
+              <p>
+                Du siehst gleich 10 Fotos, nacheinander. Zu jedem Foto entscheidest du: ist es
+                echt oder KI-generiert? Die Auflösung — inklusive Quelle bei echten Fotos —
+                bekommst du sofort nach deiner Antwort. Am Ende siehst du deinen Score, alle
+                Quellen und ein paar Erklärungen, woran man KI-Bilder erkennt.
+              </p>
+            </div>
+            <button type="button" class="ic-btn" id="quiz-start">Quiz starten</button>
+          </div>
+
+          <!-- ============ Runde ============ -->
+          <div class="ic-quiz__stage" id="stage-round" hidden>
+            <span class="ic-quiz__progress" id="quiz-progress">Foto 1 / 10</span>
+            <p class="ic-quiz__caption" id="quiz-caption"></p>
+            <div class="ic-quiz__photo" id="quiz-photo" aria-hidden="true"></div>
+
+            <div class="ic-quiz__actions" id="quiz-actions">
+              <button type="button" class="ic-btn ic-btn--block" data-vote="fake">Fake</button>
+              <button type="button" class="ic-btn ic-btn--block" data-vote="real">Real</button>
+            </div>
+
+            <div class="ic-quiz__feedback" id="quiz-feedback" hidden>
+              <p class="ic-quiz__feedback-result" id="quiz-feedback-result"></p>
+              <p class="ic-quiz__feedback-source" id="quiz-feedback-source" hidden></p>
+              <button type="button" class="ic-btn" id="quiz-next">Weiter</button>
+            </div>
+          </div>
+
+          <!-- ============ Score ============ -->
+          <div class="ic-quiz__stage" id="stage-score" hidden>
+            <span class="ic-onepager__eyebrow">Ergebnis</span>
+            <h1 class="ic-onepager__title">Dein Score</h1>
+            <p class="ic-quiz__score" id="quiz-score"></p>
+            <button type="button" class="ic-btn" id="quiz-to-sources">Weiter zu den Quellen</button>
+          </div>
+
+          <!-- ============ Quellen ============ -->
+          <div class="ic-quiz__stage" id="stage-sources" hidden>
+            <span class="ic-onepager__eyebrow">Auflösung</span>
+            <h1 class="ic-onepager__title">Die echten Fotos</h1>
+            <ul class="ic-quiz__sources" id="quiz-sources-list"></ul>
+            <button type="button" class="ic-btn" id="quiz-to-explain">Weiter zu den Erklärungen</button>
+          </div>
+
+          <!-- ============ Erklärungen ============ -->
+          <div class="ic-quiz__stage" id="stage-explain" hidden>
+            <span class="ic-quiz__progress" id="quiz-explain-progress"></span>
+            <h1 class="ic-onepager__title">Woran erkennt man's?</h1>
+            <p class="ic-quiz__caption" id="quiz-explain-caption"></p>
+            <div class="ic-quiz__photo" id="quiz-explain-photo" aria-hidden="true"></div>
+            <p class="ic-quiz__explain-text" id="quiz-explain-text"></p>
+            <button type="button" class="ic-btn" id="quiz-explain-next">Weiter</button>
+          </div>
+
+          <!-- ============ Ende ============ -->
+          <div class="ic-quiz__stage" id="stage-end" hidden>
+            <span class="ic-onepager__eyebrow">Fertig</span>
+            <h1 class="ic-onepager__title">Gut gemacht.</h1>
+            <div class="ic-onepager__lead">
+              <p>
+                Je mehr du mit KI-Bildern in Kontakt kommst, desto besser wird dein Gespür dafür.
+                Schau gerne nochmal vorbei, wenn neue Fotos dazukommen.
+              </p>
+            </div>
+            <div class="ic-quiz__end-actions">
+              <button type="button" class="ic-btn" id="quiz-restart">Nochmal spielen</button>
+              <a href="/lernmaterial.html" class="ic-btn">Zurück zu Lernmaterial</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="ic-footer">
+      <span>© 2026 Klick &amp; Klar</span>
+      <span>
+        <a href="mailto:info@klickundklar.at">info@klickundklar.at</a>
+        &nbsp;·&nbsp;
+        <a href="/impressum.html">Impressum</a>
+        &nbsp;·&nbsp;
+        <a href="/datenschutz.html">Datenschutz</a>
+      </span>
+    </footer>
+
+  </div>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/ki-oder-real.js"></script>
+</body>
+</html>
