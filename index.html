@@ -24,13 +24,16 @@
   </svg>
 
   <!-- ============ Website-Inhalt (immer im DOM, nur visuell unscharf) ============ -->
-  <div class="ic-content" id="ic-content">
+  <div class="ic-content ic-content--intro" id="ic-content">
 
     <header class="ic-nav">
       <div class="ic-nav__row">
         <a href="/" class="ic-nav__mark">Klick &amp; Klar</a>
         <!-- Weitere Unterseiten werden hier verlinkt, sobald sie live gehen. -->
-        <nav aria-label="Hauptnavigation">
+        <button type="button" class="ic-nav__toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="ic-nav__menu" aria-label="Hauptnavigation">
           <ul class="ic-nav__links" id="nav-links">
             <li><a href="/wer-wir-sind.html">Wer wir sind</a></li>
             <li><a href="/workshops.html">Workshops</a></li>
@@ -68,5 +71,6 @@
   </div>
 
   <script src="/js/intro-concept.js"></script>
+  <script src="/js/nav.js"></script>
 </body>
 </html>
