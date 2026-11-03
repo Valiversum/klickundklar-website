@@ -666,3 +666,6 @@ main.container,
   color: var(--ink);
   border-color: var(--blue);
 }
+
+.ic-workshops-planned { margin-top: 24px; }
+.ic-workshops-planned .ic-workshops { margin-top: 0; }
