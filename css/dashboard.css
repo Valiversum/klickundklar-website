@@ -1000,32 +1000,20 @@ main.container,
 .ic-hero-video__shade {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 70%),
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.92) 0%,
-      rgba(0, 0, 0, 0.78) 45%,
-      rgba(0, 0, 0, 0.35) 75%,
-      rgba(0, 0, 0, 0.45) 100%
-    );
+  /* Abdunkelung nur im unteren Streifen unter dem Titel */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.8) 16%, rgba(0, 0, 0, 0) 38%);
 }
 .ic-hero-video__inner {
   position: relative;
   width: min(var(--max), 100%);
   margin: 0 auto;
-  padding: 56px var(--gutter) 36px;
+  padding: 40px var(--gutter) 28px;
 }
 .ic-hero-video__title {
-  margin: 0 0 12px;
-  font-size: clamp(30px, 6.4vw, 52px);
+  margin: 0;
+  font-size: clamp(14px, 3.9vw, 44px);
+  white-space: nowrap;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
-}
-.ic-hero-video__subtitle {
-  margin: 0 0 22px;
-  max-width: 34ch;
-  font-size: clamp(15px, 2.4vw, 19px);
-  color: rgba(255, 255, 255, 0.88);
 }
