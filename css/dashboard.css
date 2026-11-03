@@ -399,7 +399,6 @@ main.container,
   grid-template-columns: 1fr;
   border-style: dashed;
   border-top-width: 1px;
-  color: var(--muted);
 }
 
 @media (max-width: 719px) {
@@ -641,4 +640,29 @@ main.container,
 
 @media (prefers-reduced-motion: reduce) {
   .ic-content--intro, .ic-body.ic-revealed .ic-intro { transition: none; }
+}
+
+/* ---------- Workshops: "in Planung" (ausgegraut) & Partner-Badge ---------- */
+
+.ic-workshop.ic-workshop--planned { --c: var(--line-h); background: var(--bg2); }
+.ic-workshop--planned .ic-workshop__body { color: var(--muted); }
+.ic-workshop--planned .ic-workshop__title { color: var(--muted); }
+.ic-workshop--planned .ic-workshop__image { filter: grayscale(1); opacity: 0.6; }
+.ic-workshop__planned {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line-h);
+  border-radius: var(--radius);
+}
+.ic-workshop__partner--lg {
+  padding: 4px 12px;
+  font-size: 14px;
+  color: var(--ink);
+  border-color: var(--blue);
 }
