@@ -6,7 +6,7 @@
 (() => {
   // Öffentlicher Site-Key aus dem Cloudflare-Dashboard (Turnstile).
   // Solange leer, zeigt die Seite statt des Formulars einen E-Mail-Hinweis.
-  const TURNSTILE_SITE_KEY = "";
+  const TURNSTILE_SITE_KEY = "0x4AAAAAAFyMc00aO40i4vCo";
   const ENDPOINT = "/api/contact";
 
   const form = document.getElementById("contact-form");
