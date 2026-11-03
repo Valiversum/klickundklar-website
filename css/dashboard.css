@@ -1001,13 +1001,18 @@ main.container,
   position: absolute;
   inset: 0;
   /* Abdunkelung nur im unteren Streifen unter dem Titel */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.8) 16%, rgba(0, 0, 0, 0) 38%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 44%);
 }
 .ic-hero-video__inner {
   position: relative;
   width: min(var(--max), 100%);
   margin: 0 auto;
   padding: 40px var(--gutter) 28px;
+}
+.ic-hero-video__subtitle {
+  margin: 6px 0 0;
+  font-size: clamp(13px, 2.2vw, 19px);
+  color: rgba(255, 255, 255, 0.9);
 }
 .ic-hero-video__title {
   margin: 0;
