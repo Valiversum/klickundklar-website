@@ -669,3 +669,70 @@ main.container,
 
 .ic-workshops-planned { margin-top: 24px; }
 .ic-workshops-planned .ic-workshops { margin-top: 0; }
+
+/* ---------- Lernmaterial: ausklappbare Download-Listen ---------- */
+
+.ic-materials { display: grid; gap: 10px; margin-top: 20px; }
+.ic-material {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+}
+.ic-material--soon { background: var(--bg2); border-top-color: var(--line-h); color: var(--muted); }
+.ic-material__summary {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 48px;
+  padding: 10px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+.ic-material__summary::-webkit-details-marker { display: none; }
+.ic-material__summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+.ic-material[open] > .ic-material__summary::after { content: "\2212"; }
+.ic-material__title { font-size: 15px; font-weight: 700; }
+.ic-material__badge {
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--line-h);
+  border-radius: var(--radius);
+}
+.ic-material__list { list-style: none; margin: 0; padding: 0 14px 10px; }
+.ic-material__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.ic-material__name { margin: 0 0 2px; font-size: 15px; }
+.ic-material__desc { margin: 0; font-size: 13px; color: var(--muted); }
+.ic-material__dl {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  border-radius: var(--radius);
+}
+.ic-material__dl:hover { text-decoration: none; opacity: 0.92; }
+.ic-material__dl--soon {
+  color: var(--muted);
+  background: transparent;
+  border: 1px dashed var(--line-h);
+}
