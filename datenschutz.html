@@ -12,26 +12,28 @@
   <link rel="apple-touch-icon" href="/assets/favicon-180.png" />
   <link rel="stylesheet" href="/css/dashboard.css" />
 </head>
-<body>
+<body class="ic-body">
 
-  <header class="site-header is-scrolled" id="site-header">
-    <div class="container nav">
-      <a href="/" class="nav__logo" aria-label="Klick & Klar Startseite">
-        Klick <span>&amp;</span> Klar
-      </a>
-      <nav>
-        <ul class="nav__links" id="nav-links">
-          <li><a href="/">Startseite</a></li>
-        </ul>
-      </nav>
-      <div class="nav__cta">
-        <a href="/" class="btn btn--dark">Zur Startseite</a>
-        <button class="nav__toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+  <div class="ic-content" id="ic-content">
+
+    <header class="ic-nav">
+      <div class="ic-nav__row">
+        <a href="/" class="ic-nav__mark">Klick &amp; Klar</a>
+        <button type="button" class="ic-nav__toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
         </button>
+        <nav class="ic-nav__menu" aria-label="Hauptnavigation">
+          <ul class="ic-nav__links" id="nav-links">
+            <li><a href="/" class="ic-nav__home"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="currentColor"/></svg>Home</a></li>
+            <li><a href="/wer-wir-sind.html" aria-current="page">Wer wir sind</a></li>
+            <li><a href="/workshops.html">Workshops</a></li>
+            <li><a href="/initiativen.html">Initiativen</a></li>
+            <li><a href="/lernmaterial.html">Lernmaterial</a></li>
+            <li><a href="/kontakt.html" class="ic-nav__cta">Kontakt</a></li>
+          </ul>
+        </nav>
       </div>
-    </div>
-  </header>
+    </header>
 
   <main class="container">
     <div class="legal">
@@ -47,7 +49,7 @@
       <p>
         Klick &amp; Klar – Verein für digitale Medienbildung und Social-Media-Kompetenz<br />
         Sitz: Wien, Österreich<br />
-        E-Mail: <a href="mailto:info@klickundklar.at">info@klickundklar.at</a>
+        E-Mail: <a class="js-mail" data-u="mazal.valentin" data-d="gmail.com">mazal.valentin ( @ ) gmail.com</a>
       </p>
 
       <h2>Hosting</h2>
@@ -107,7 +109,7 @@
         Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
         Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung deiner
         personenbezogenen Daten. Wende dich dazu an
-        <a href="mailto:info@klickundklar.at">info@klickundklar.at</a>. Außerdem steht dir
+        <a class="js-mail" data-u="mazal.valentin" data-d="gmail.com">mazal.valentin ( @ ) gmail.com</a>. Außerdem steht dir
         ein Beschwerderecht bei der österreichischen Datenschutzbehörde
         (<a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>) zu.
       </p>
@@ -121,14 +123,20 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> Klick &amp; Klar</span>
-      <span><a href="/impressum.html" style="color:inherit;">Impressum</a> · <a href="/" style="color:inherit;">Zur Startseite</a></span>
-    </div>
-  </footer>
+    <footer class="ic-footer">
+      <span>© 2026 Klick &amp; Klar</span>
+      <span>
+        <a class="js-mail" data-u="mazal.valentin" data-d="gmail.com">mazal.valentin ( @ ) gmail.com</a>
+        &nbsp;·&nbsp;
+        <a href="/impressum.html">Impressum</a>
+        &nbsp;·&nbsp;
+        <a href="/datenschutz.html">Datenschutz</a>
+      </span>
+    </footer>
 
-  <script src="/js/main.js"></script>
+  </div>
+
+  <script src="/js/nav.js"></script>
   <script src="/js/mail.js"></script>
 </body>
 </html>
