@@ -4,6 +4,9 @@
 // present (e.g. future pages that don't need it).
 
 (() => {
+  // Besuch merken, damit ein spaeteres "Home" das Intro nicht neu startet.
+  try { sessionStorage.setItem("ic-visited", "1"); } catch (e) {}
+
   const toggle = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
   if (!toggle || !links) return;

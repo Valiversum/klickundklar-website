@@ -12,6 +12,13 @@
   const cursor = document.getElementById("ic-cursor");
   if (!entry || !intro || !cursor) return;
 
+  if (document.documentElement.classList.contains("ic-skip-intro")) {
+    body.classList.add("ic-revealed");
+    intro.remove();
+    cursor.remove();
+    return;
+  }
+
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
