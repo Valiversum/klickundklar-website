@@ -1017,3 +1017,10 @@ main.container,
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
+
+/* Mobil: Video in voller Breite (16:9), nichts seitlich abgeschnitten */
+@media (max-width: 719px) {
+  .ic-hero-video { min-height: 0; aspect-ratio: 16 / 9; }
+  .ic-hero-video__media { object-position: center; }
+  .ic-hero-video__inner { padding: 16px var(--gutter) 12px; }
+}
