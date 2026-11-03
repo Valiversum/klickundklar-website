@@ -856,3 +856,14 @@ main.container,
 .ic-skip-intro .ic-content--intro { filter: none; transition: none; }
 .ic-skip-intro .ic-intro,
 .ic-skip-intro .ic-cursor { display: none !important; }
+
+/* Quiz-Teaser ausgegraut */
+.ic-quiz-teaser.ic-quiz-teaser--soon { --c: var(--line-h); background: var(--bg2); color: var(--muted); }
+.ic-quiz-teaser--soon .ic-quiz-teaser__title { color: var(--muted); }
+.ic-btn--disabled {
+  color: var(--muted);
+  background: transparent;
+  border: 1px dashed var(--line-h);
+  cursor: not-allowed;
+}
+.ic-btn--disabled:hover { opacity: 1; }
