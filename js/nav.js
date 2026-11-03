@@ -25,6 +25,11 @@
     a.addEventListener("click", () => setOpen(false));
   });
 
+  // Tippen ausserhalb des Menues schliesst es.
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".ic-nav")) setOpen(false);
+  });
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
