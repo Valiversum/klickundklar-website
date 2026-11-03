@@ -980,3 +980,5 @@ main.container,
   .ic-nav__links a.ic-nav__cta:hover { background: var(--blue); opacity: 0.92; }
   .ic-nav__links a.ic-nav__cta::before { display: none; }
 }
+
+.ic-team__position { margin: 8px 0 0; font-size: 13px; font-weight: 700; }
