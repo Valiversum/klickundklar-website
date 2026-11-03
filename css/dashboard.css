@@ -736,3 +736,10 @@ main.container,
   background: transparent;
   border: 1px dashed var(--line-h);
 }
+
+.ic-workshop--logo { grid-template-columns: 120px 1fr; align-items: center; }
+.ic-workshop--logo .ic-workshop__image { grid-area: auto; height: auto; aspect-ratio: 1 / 1; }
+@media (max-width: 719px) {
+  .ic-workshop--logo { grid-template-columns: 1fr; }
+  .ic-workshop--logo .ic-workshop__image { width: 120px; height: 120px; }
+}
