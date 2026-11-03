@@ -1039,3 +1039,42 @@ main.container,
   .ic-team__featured .ic-team__member { flex: 0 0 calc(25% - 7.5px); }
   .ic-team__bio { flex: 1 1 0; min-width: 0; padding-top: 4px; font-size: 16px; }
 }
+
+/* Team v3: Vereinsleiter als grosse Karte, weitere Mitglieder als breite Karten */
+.ic-team__featured,
+.ic-team__member {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 12px;
+}
+.ic-team__featured {
+  --c: var(--blue);
+  margin-bottom: 14px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--c);
+  border-radius: var(--radius);
+}
+.ic-team__featured .ic-team__photo,
+.ic-team__member .ic-team__photo { margin: 0; }
+.ic-team__featured .ic-team__name { font-size: 20px; }
+.ic-team__member .ic-team__name { font-size: 16px; }
+.ic-team__position { min-height: 0; margin-bottom: 4px; }
+.ic-team__bio { margin-top: 10px; font-size: 15px; padding: 0; }
+.ic-team__bio p { margin: 0 0 10px; }
+.ic-team__bio p:last-child { margin-bottom: 0; }
+.ic-team__photo--initials { display: grid; place-items: center; background: var(--bg2); color: var(--muted); font-size: 28px; font-weight: 700; letter-spacing: 0.04em; }
+.ic-team__grid, .ic-team__grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+@media (min-width: 900px) {
+  .ic-team__grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .ic-team__featured { grid-template-columns: 240px 1fr; gap: 24px; }
+  .ic-team__member { grid-template-columns: 140px 1fr; }
+  .ic-team__bio { font-size: 16px; margin-top: 12px; }
+}
+@media (max-width: 479px) {
+  .ic-team__featured { grid-template-columns: 1fr; }
+  .ic-team__featured .ic-team__photo { max-width: 200px; }
+}
