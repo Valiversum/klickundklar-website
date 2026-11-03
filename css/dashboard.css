@@ -1029,3 +1029,13 @@ main.container,
   .ic-hero-video__media { object-position: center; }
   .ic-hero-video__inner { padding: 16px var(--gutter) 12px; }
 }
+
+/* Team: Valentin oben (Kachel links, Text rechts), Rest als Kacheln darunter */
+.ic-team__featured { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: flex-start; margin-bottom: 14px; }
+.ic-team__featured .ic-team__member { flex: 0 0 calc(50% - 5px); }
+.ic-team__bio { flex: 1 1 100%; font-size: 15px; }
+.ic-team__bio p { margin: 0 0 10px; }
+@media (min-width: 900px) {
+  .ic-team__featured .ic-team__member { flex: 0 0 calc(25% - 7.5px); }
+  .ic-team__bio { flex: 1 1 0; min-width: 0; padding-top: 4px; font-size: 16px; }
+}
