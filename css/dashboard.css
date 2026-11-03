@@ -357,7 +357,7 @@ main.container,
   text-transform: uppercase;
   color: var(--muted);
 }
-.ic-workshop__book { margin: 12px 0 0; font-size: 13px; font-weight: 700; }
+.ic-workshop__book { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 12px 0 0; font-size: 13px; font-weight: 700; }
 .ic-workshop__book a { color: var(--blue); }
 .ic-workshop__book--pending {
   display: inline-block;
