@@ -1082,15 +1082,21 @@ main.container,
 /* Team: Karten in einer Reihe gleich hoch */
 .ic-team__grid { align-items: stretch; }
 
-/* Startseite: Wer wir sind + Kontakt-Aufruf */
-.ic-home__about { max-width: 62ch; margin: 0 0 14px; }
-.ic-home__cta {
-  margin-top: 32px;
-  padding: 18px;
+/* Startseite: zwei gleich hohe Karten (Wer wir sind / Kontakt) */
+.ic-home__cards { display: grid; gap: 10px; margin-top: 32px; }
+.ic-home__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
   background: var(--card);
   border: 1px solid var(--line);
-  border-top: 4px solid var(--blue);
+  border-top: 4px solid var(--c);
   border-radius: var(--radius);
 }
-.ic-home__cta p { margin: 0 0 12px; }
-.ic-home__cta .ic-home__cta-title { margin-bottom: 4px; font-size: 18px; font-weight: 700; }
+.ic-home__card p { margin: 0 0 14px; }
+.ic-home__card .ic-home__card-title { margin-bottom: 6px; font-size: 18px; font-weight: 700; }
+.ic-home__card .ic-btn { margin-top: auto; }
+@media (min-width: 720px) {
+  .ic-home__cards { grid-template-columns: 1fr 1fr; }
+}
