@@ -1122,3 +1122,7 @@ main.container,
 }
 .ic-banner__close:hover { color: var(--ink); border-color: var(--line-h); }
 .ic-banner__close:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* Logo-Zeichen neben der Wortmarke im Menue */
+.ic-nav__mark { display: inline-flex; align-items: center; gap: 8px; }
+.ic-nav__logo { display: block; width: auto; height: 21px; }
