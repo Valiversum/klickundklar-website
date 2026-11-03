@@ -1081,3 +1081,16 @@ main.container,
 
 /* Team: Karten in einer Reihe gleich hoch */
 .ic-team__grid { align-items: stretch; }
+
+/* Startseite: Wer wir sind + Kontakt-Aufruf */
+.ic-home__about { max-width: 62ch; margin: 0 0 14px; }
+.ic-home__cta {
+  margin-top: 32px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+}
+.ic-home__cta p { margin: 0 0 12px; }
+.ic-home__cta .ic-home__cta-title { margin-bottom: 4px; font-size: 18px; font-weight: 700; }
