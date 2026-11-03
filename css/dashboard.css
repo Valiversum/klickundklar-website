@@ -743,3 +743,36 @@ main.container,
   .ic-workshop--logo { grid-template-columns: 1fr; }
   .ic-workshop--logo .ic-workshop__image { width: 120px; height: 120px; }
 }
+
+/* ---------- Startseite: Pixel-Illustration mit schwebendem Frosch ---------- */
+
+.ic-hero-landing__grid { display: grid; gap: 24px; align-items: center; }
+.ic-hero-art {
+  position: relative;
+  width: min(100%, 360px);
+  aspect-ratio: 1079 / 860;
+  justify-self: start;
+}
+.ic-hero-art img { position: absolute; image-rendering: pixelated; }
+.ic-hero-art__boy { left: 0; top: 0; width: 40.8%; height: 100%; object-fit: contain; }
+.ic-hero-art__frog {
+  left: 61%;
+  top: 30.1%;
+  width: 39%;
+  height: auto;
+  animation: frog-float 3.2s ease-in-out infinite;
+}
+@keyframes frog-float {
+  0%   { transform: translate(0, 0) rotate(-3deg); }
+  25%  { transform: translate(-4%, -10%) rotate(2deg); }
+  50%  { transform: translate(0, -16%) rotate(3deg); }
+  75%  { transform: translate(4%, -8%) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(-3deg); }
+}
+@media (min-width: 720px) {
+  .ic-hero-landing__grid { grid-template-columns: 1fr minmax(260px, 400px); gap: 40px; }
+  .ic-hero-art { justify-self: end; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ic-hero-art__frog { animation: none; }
+}
