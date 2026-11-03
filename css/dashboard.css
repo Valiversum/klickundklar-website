@@ -64,7 +64,9 @@ h3 { margin: 0; font-size: 15px; font-weight: 700; }
 
 /* Karten-Titel sind h2 im Markup, folgen aber der Karten-Hierarchie */
 .ic-workshop__title,
+.ic-onepager__title,
 .ic-team__title,
+.ic-team__feature .ic-team__name,
 .ic-quiz-teaser__title {
   letter-spacing: normal;
   text-transform: none;
@@ -94,10 +96,11 @@ main.container,
   background: var(--bg2);
   border-top: 4px solid var(--orange);
   border-bottom: 1px solid var(--line);
-  padding: 8px var(--gutter);
+  padding: 28px var(--gutter);
   text-align: center;
-  font-size: 13px;
+  font-size: clamp(20px, 5vw, 30px);
   font-weight: 700;
+  line-height: 1.25;
 }
 
 /* ---------- Navigation / Kopfzeile ---------- */
@@ -412,9 +415,27 @@ main.container,
 
 .ic-team { margin-top: 24px; }
 .ic-team .ic-onepager__eyebrow { margin-top: 0; }
-.ic-team__title { margin: 4px 0 6px; font-size: 18px; font-weight: 700; }
+.ic-team__title { margin: 4px 0 10px; font-size: clamp(24px, 6vw, 32px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.ic-team__feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 10px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+}
+.ic-team__feature .ic-team__photo { margin-bottom: 0; max-width: 240px; }
+.ic-team__feature .ic-team__name { font-size: 18px; }
+.ic-team__feature .ic-team__role { margin-bottom: 10px; }
+.ic-team__bio p:last-child { margin-bottom: 0; }
+@media (min-width: 640px) {
+  .ic-team__feature { grid-template-columns: 240px 1fr; gap: 20px; }
+}
 .ic-team__lead { margin: 0 0 12px; color: var(--muted); }
-.ic-team__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.ic-team__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 24px; }
 .ic-team__member { padding: 10px; }
 .ic-team__member:nth-child(4n+1) { --c: var(--blue); }
 .ic-team__member:nth-child(4n+2) { --c: var(--green); }
@@ -432,7 +453,7 @@ main.container,
 .ic-team__name { margin: 0; font-size: 14px; font-weight: 700; }
 .ic-team__role { margin: 0; font-size: 13px; color: var(--muted); }
 @media (min-width: 640px) {
-  .ic-team__grid { grid-template-columns: repeat(4, 1fr); }
+  .ic-team__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ---------- Social-Liste (Panel) ---------- */
