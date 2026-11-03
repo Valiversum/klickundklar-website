@@ -70,7 +70,7 @@
     const targetX = rect.left + rect.width * 0.4;
     const targetY = rect.top + rect.height * 0.6;
     cursor.style.transition =
-      "transform 850ms cubic-bezier(0.65, 0, 0.35, 1), opacity var(--dur-base) ease, width 120ms ease, height 120ms ease, color 120ms ease";
+      "transform 850ms cubic-bezier(0.65, 0, 0.35, 1), opacity 320ms ease, width 120ms ease, height 120ms ease, color 120ms ease";
     requestAnimationFrame(() => {
       cursor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
     });
