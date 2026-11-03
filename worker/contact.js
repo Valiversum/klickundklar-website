@@ -60,6 +60,7 @@ export async function handleContact(request, env, { EmailMessage, fetchImpl = fe
     const res = await fetchImpl(TURNSTILE_URL, { method: "POST", body: form });
     const result = await res.json();
     if (!result.success) {
+      console.error("turnstile rejected", JSON.stringify(result["error-codes"] || []));
       return json({ error: "Die Spam-Prüfung ist fehlgeschlagen. Bitte versuche es erneut." }, 400);
     }
   } catch (err) {
