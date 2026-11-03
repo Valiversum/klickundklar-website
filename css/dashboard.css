@@ -1078,3 +1078,6 @@ main.container,
   .ic-team__featured { grid-template-columns: 1fr; }
   .ic-team__featured .ic-team__photo { max-width: 200px; }
 }
+
+/* Team: Karten in einer Reihe gleich hoch */
+.ic-team__grid { align-items: stretch; }
