@@ -814,3 +814,11 @@ main.container,
 }
 
 .ic-workshop.ic-workshop--feature { --c: var(--blue); }
+
+.ic-tile--soon {
+  background: var(--bg2);
+  border-style: dashed;
+  border-top-width: 1px;
+  color: var(--muted);
+}
+.ic-tile--soon:hover { background: var(--bg2); }
