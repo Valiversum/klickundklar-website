@@ -1,5 +1,19 @@
 name = "klickundklar-website"
+main = "worker/index.js"
 compatibility_date = "2026-09-03"
 
 [assets]
 directory = "./"
+binding = "ASSETS"
+
+# Kontaktformular (/api/contact)
+[vars]
+CONTACT_TO = "mazal.valentin@gmail.com"
+CONTACT_FROM = "kontakt@klickundklar.at"
+
+[[send_email]]
+name = "EMAIL"
+destination_address = "mazal.valentin@gmail.com"
+
+# Secret (nicht im Repo): TURNSTILE_SECRET
+# -> Cloudflare Dashboard > Workers > klickundklar-website > Settings > Variables and Secrets

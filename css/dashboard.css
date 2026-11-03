@@ -867,3 +867,53 @@ main.container,
   cursor: not-allowed;
 }
 .ic-btn--disabled:hover { opacity: 1; }
+
+/* ---------- Kontaktformular ---------- */
+
+.ic-form-section { margin-top: 24px; max-width: 560px; }
+.ic-form-section h2:first-child { margin-top: 0; }
+.ic-form { display: grid; gap: 14px; }
+.ic-field { display: grid; gap: 4px; }
+.ic-field label { font-size: 13px; font-weight: 700; }
+.ic-field input,
+.ic-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ic-field textarea { min-height: 140px; resize: vertical; }
+.ic-field input:focus,
+.ic-field textarea:focus { outline: none; border-color: var(--blue); }
+.ic-field input:focus-visible,
+.ic-field textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 0; }
+
+/* Honeypot: für Menschen unsichtbar, für Bots vorhanden */
+.ic-field--trap {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ic-check { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); }
+.ic-check input { flex: none; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--blue); }
+.ic-turnstile { min-height: 0; }
+
+.ic-form__hint { margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+.ic-form__setup { margin: 0; padding: 12px 14px; font-size: 13px; background: var(--bg2); border: 1px dashed var(--line-h); border-radius: var(--radius); }
+.ic-form__error { margin: 0; font-size: 13px; color: var(--red); }
+.ic-form__success {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+}
+.ic-form .ic-btn { justify-self: start; }
+.ic-form .ic-btn:disabled { opacity: 0.6; cursor: wait; }

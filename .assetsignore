@@ -3,3 +3,8 @@
 .gitignore
 README.md
 wrangler.toml
+worker
+package.json
+package-lock.json
+node_modules
+.wrangler

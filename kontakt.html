@@ -52,7 +52,58 @@
             <a href="mailto:mazal.valentin@gmail.com"><span>mazal.valentin@gmail.com</span></a>
           </p>
 
-          <p class="ic-onepager__soon">Ein Kontaktformular folgt in Kürze</p>
+          <section class="ic-form-section" aria-labelledby="form-title">
+            <h2 id="form-title">Nachricht senden</h2>
+
+            <p class="ic-form__setup" id="contact-setup" hidden>
+              Das Kontaktformular wird gerade eingerichtet. Schreib uns bitte direkt per
+              E-Mail an <a href="mailto:mazal.valentin@gmail.com">mazal.valentin@gmail.com</a>.
+            </p>
+
+            <noscript>
+              <p class="ic-form__hint">
+                Für das Formular wird JavaScript benötigt. Schreib uns alternativ direkt an
+                <a href="mailto:mazal.valentin@gmail.com">mazal.valentin@gmail.com</a>.
+              </p>
+            </noscript>
+
+            <form class="ic-form" id="contact-form" novalidate hidden>
+              <div class="ic-field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+              </div>
+              <div class="ic-field">
+                <label for="cf-email">E-Mail</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required />
+              </div>
+              <div class="ic-field">
+                <label for="cf-message">Nachricht</label>
+                <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+              </div>
+
+              <div class="ic-field ic-field--trap" aria-hidden="true">
+                <label for="cf-website">Bitte leer lassen</label>
+                <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <label class="ic-check">
+                <input type="checkbox" name="consent" id="cf-consent" required />
+                <span>
+                  Ich habe die <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>
+                  gelesen und bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verarbeitet werden.
+                </span>
+              </label>
+
+              <div id="turnstile-box" class="ic-turnstile"></div>
+
+              <p class="ic-form__error" id="contact-error" role="alert" hidden></p>
+              <p class="ic-form__success" id="contact-success" role="status" hidden>
+                Danke! Deine Nachricht ist angekommen, wir melden uns bei dir.
+              </p>
+
+              <button type="submit" class="ic-btn" id="contact-submit">Nachricht senden</button>
+            </form>
+          </section>
 
           <div class="ic-social">
             <span class="ic-onepager__eyebrow">Social Media</span>
@@ -89,5 +140,6 @@
   </div>
 
   <script src="/js/nav.js"></script>
+  <script src="/js/contact-form.js"></script>
 </body>
 </html>

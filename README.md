@@ -117,3 +117,22 @@ Caching) und wird empfohlen.
 - Namen des Vorstands (Obmann/Obfrau, Kassier:in, Schriftführer:in) in
   `index.html` (`#team`) und `impressum.html` ergänzen.
 - Vereinsadresse in `impressum.html` ergänzen.
+
+
+## Kontaktformular (Cloudflare Worker)
+
+Das Formular auf `kontakt.html` sendet an `/api/contact`. Das verarbeitet der
+Worker in `worker/` (Prüfung, Turnstile, Mailversand an `CONTACT_TO`). Lokal
+testen: `node --test worker/contact.test.mjs`.
+
+Einmalige Einrichtung im Cloudflare-Dashboard:
+
+1. **Email Routing**: Die Zieladresse (`mazal.valentin@gmail.com`) muss dort als
+   bestätigte Adresse eingetragen sein (die `send_email`-Bindung in
+   `wrangler.toml` darf nur an diese Adresse senden).
+2. **Turnstile**: Widget anlegen (Domain `klickundklar.at`).
+   - *Site-Key* (öffentlich) in `js/contact-form.js` bei `TURNSTILE_SITE_KEY` eintragen.
+   - *Secret Key* im Worker als Secret `TURNSTILE_SECRET` hinterlegen
+     (Workers > klickundklar-website > Settings > Variables and Secrets).
+   Ohne Secret antwortet der Worker mit 503, ohne Site-Key zeigt die Seite
+   einen E-Mail-Hinweis statt des Formulars.
