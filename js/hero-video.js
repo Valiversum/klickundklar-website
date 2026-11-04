@@ -13,7 +13,17 @@
   const once = video.hasAttribute("data-once"); // einmal abspielen, letztes Bild bleibt stehen
   if (once) video.loop = false;
 
+  // Titel erscheint erst, wenn das Standbild (letztes Bild) beginnt.
+  const section = video.closest(".ic-hero-video");
+  const showTitle = () => { if (section) section.classList.remove("ic-hero-video--pending"); };
+  if (once) {
+    video.addEventListener("ended", showTitle, { once: true });
+    video.addEventListener("error", showTitle, { once: true });
+    setTimeout(showTitle, 8000); // Sicherheitsnetz, falls das Video nie endet
+  }
+
   if (reduced) {
+    showTitle();
     if (once) {
       // Bewegung reduzieren: direkt das letzte Bild zeigen, nichts abspielen.
       video.preload = "auto";
@@ -27,5 +37,5 @@
   const lite = video.dataset.srcSmall || "/assets/hero-banner-v2-640.mp4";
   video.src = small ? lite : big;
   const play = video.play();
-  if (play && play.catch) play.catch(() => { /* Autoplay blockiert: Poster bleibt */ });
+  if (play && play.catch) play.catch(() => { showTitle(); /* Autoplay blockiert: Poster bleibt */ });
 })();
