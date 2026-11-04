@@ -1241,3 +1241,9 @@ main.container,
 .ic-download__text { display: grid; gap: 2px; }
 .ic-download__title { font-weight: 700; font-size: 16px; }
 .ic-download__meta { font-size: 13px; color: var(--muted); }
+
+/* Workshop-Details: Eckdaten + Was?/Wie? */
+.ic-workshop__facts { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 4px 0 12px; padding: 0; list-style: none; font-size: 13px; font-weight: 700; }
+.ic-workshop__facts li { display: flex; flex-direction: column; gap: 1px; }
+.ic-workshop__facts span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ic-workshop__sub { margin: 12px 0 4px; font-size: 14px; font-weight: 700; }
