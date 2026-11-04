@@ -1178,3 +1178,28 @@ main.container,
   .ic-nav__links a.ic-nav__cta:hover { background: var(--blue); color: #fff; opacity: 0.92; }
   .ic-nav__links a.ic-nav__cta[aria-current="page"]::before { display: none; }
 }
+
+/* Kontaktseite: Kopf mit Logo, zwei Spalten (Infos | Formular) */
+.ic-contact__head { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.ic-contact__head .ic-onepager__eyebrow { margin-top: 0; }
+.ic-contact__head .ic-onepager__title { margin: 2px 0 0; }
+.ic-contact__logo { display: block; width: auto; height: 56px; flex: none; }
+.ic-contact { display: grid; gap: 14px; align-items: start; }
+.ic-contact__side { display: grid; gap: 14px; }
+.ic-contact__card,
+.ic-contact__form {
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--c, var(--blue));
+  border-radius: var(--radius);
+}
+.ic-contact__card p { margin: 0 0 10px; }
+.ic-contact__card .ic-contact__card-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.ic-contact__mail { margin: 4px 0 0; font-weight: 700; word-break: break-word; }
+.ic-contact__card .ic-social__list { margin: 0; border: 0; background: transparent; }
+.ic-contact__form { --c: var(--blue); margin-top: 0; max-width: none; }
+.ic-contact__form h2 { margin: 0 0 14px; }
+@media (min-width: 900px) {
+  .ic-contact { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; }
+}

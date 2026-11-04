@@ -38,21 +38,38 @@
     <main>
       <section class="ic-onepager">
         <div class="ic-onepager__inner">
-          <span class="ic-onepager__eyebrow">Kontakt</span>
-          <h1 class="ic-onepager__title">Sprich uns an.</h1>
-
-          <div class="ic-onepager__lead">
-            <p>
-              Ob Workshop-Anfrage, Kooperation oder einfach eine Frage — schreib uns, wir melden
-              uns zurück.
-            </p>
+          <div class="ic-contact__head">
+            <img class="ic-contact__logo" src="/assets/logo-mark.png" alt="" width="46" height="56" />
+            <div>
+              <span class="ic-onepager__eyebrow">Kontakt</span>
+              <h1 class="ic-onepager__title">Sprich uns an.</h1>
+            </div>
           </div>
 
-          <p class="ic-onepager__principle">
-            <a class="js-mail" data-u="mazal.valentin" data-d="gmail.com"><span>mazal.valentin ( @ ) gmail.com</span></a>
-          </p>
+          <div class="ic-contact">
+            <aside class="ic-contact__side">
+              <div class="ic-contact__card" style="--c: var(--orange)">
+                <p class="ic-contact__card-title">Direkt schreiben</p>
+                <p>
+                  Ob Workshop-Anfrage, Kooperation oder einfach eine Frage — schreib uns, wir
+                  melden uns zurück.
+                </p>
+                <p class="ic-contact__mail">
+                  <a class="js-mail" data-u="mazal.valentin" data-d="gmail.com"><span>mazal.valentin ( @ ) gmail.com</span></a>
+                </p>
+              </div>
 
-          <section class="ic-form-section" aria-labelledby="form-title">
+              <div class="ic-contact__card" style="--c: var(--green)">
+                <p class="ic-contact__card-title">Social Media</p>
+                <ul class="ic-social__list">
+                  <li class="ic-social__item"><span class="ic-social__name">Instagram</span><span class="ic-social__status">folgt in Kürze</span></li>
+                  <li class="ic-social__item"><span class="ic-social__name">LinkedIn</span><span class="ic-social__status">folgt in Kürze</span></li>
+                  <li class="ic-social__item"><span class="ic-social__name">TikTok</span><span class="ic-social__status">folgt in Kürze</span></li>
+                </ul>
+              </div>
+            </aside>
+
+            <section class="ic-form-section ic-contact__form" aria-labelledby="form-title">
             <h2 id="form-title">Nachricht senden</h2>
 
             <p class="ic-form__setup" id="contact-setup" hidden>
@@ -112,22 +129,6 @@
             </form>
           </section>
 
-          <div class="ic-social">
-            <span class="ic-onepager__eyebrow">Social Media</span>
-            <ul class="ic-social__list">
-              <li class="ic-social__item">
-                <span class="ic-social__name">Instagram</span>
-                <span class="ic-social__status">folgt in Kürze</span>
-              </li>
-              <li class="ic-social__item">
-                <span class="ic-social__name">LinkedIn</span>
-                <span class="ic-social__status">folgt in Kürze</span>
-              </li>
-              <li class="ic-social__item">
-                <span class="ic-social__name">TikTok</span>
-                <span class="ic-social__status">folgt in Kürze</span>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
