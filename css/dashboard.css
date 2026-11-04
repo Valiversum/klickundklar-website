@@ -1208,3 +1208,36 @@ main.container,
 @media (max-width: 899px) {
   .ic-contact__form { order: -1; }
 }
+
+/* Download-Karte (z. B. Vereinsstatuten) */
+.ic-download {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 520px;
+  margin-top: 28px;
+  padding: 14px 16px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: var(--radius);
+}
+.ic-download:hover { background: var(--card-h); text-decoration: none; border-color: var(--line-h); border-top-color: var(--red); }
+.ic-download__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 52px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--red);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ic-download__text { display: grid; gap: 2px; }
+.ic-download__title { font-weight: 700; font-size: 16px; }
+.ic-download__meta { font-size: 13px; color: var(--muted); }
