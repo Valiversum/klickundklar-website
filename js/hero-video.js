@@ -10,7 +10,18 @@
   const small = window.matchMedia("(max-width: 719px)").matches || saveData;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (reduced) return; // Poster bleibt stehen, kein Video wird geladen.
+  const once = video.hasAttribute("data-once"); // einmal abspielen, letztes Bild bleibt stehen
+  if (once) video.loop = false;
+
+  if (reduced) {
+    if (once) {
+      // Bewegung reduzieren: direkt das letzte Bild zeigen, nichts abspielen.
+      video.preload = "auto";
+      video.src = small ? (video.dataset.srcSmall || "") : (video.dataset.src || "");
+      video.addEventListener("loadedmetadata", () => { video.currentTime = Math.max(0, video.duration - 0.05); }, { once: true });
+    }
+    return; // sonst bleibt das Standbild (Poster) stehen
+  }
 
   const big = video.dataset.src || "/assets/hero-banner-v2-1280.mp4";
   const lite = video.dataset.srcSmall || "/assets/hero-banner-v2-640.mp4";
