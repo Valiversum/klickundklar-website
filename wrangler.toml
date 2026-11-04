@@ -7,6 +7,7 @@ directory = "./"
 binding = "ASSETS"
 # Videos laufen ueber den Worker (Range/206-Support fuer Safari/iOS).
 run_worker_first = ["/assets/*.mp4"]
+not_found_handling = "404-page"
 
 # Kontaktformular (/api/contact)
 [vars]

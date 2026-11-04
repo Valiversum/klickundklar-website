@@ -1,5 +1,11 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
 /assets/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=86400
 
 /css/*
   Cache-Control: no-cache

@@ -8,3 +8,10 @@ package.json
 package-lock.json
 node_modules
 .wrangler
+
+# nicht oeffentlich ausgeliefert (unbenutzte Originale)
+assets/logo.svg
+assets/logo.png
+assets/badge.png
+assets/cheat-sheet.webp
+assets/team-placeholder.webp

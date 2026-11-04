@@ -1,129 +1,83 @@
 # Klick & Klar – Vereinswebsite
 
-Statische Website für den Verein **„Klick & Klar – Verein für digitale
-Medienbildung und Social-Media-Kompetenz"**. Kein Build-Prozess, kein
-Framework – reines HTML/CSS/JS. Läuft direkt auf Cloudflare Pages.
+Website für den Verein **„Klick & Klar – Verein für digitale Medienbildung und
+Social-Media-Kompetenz"** (klickundklar.at). Kein Build-Prozess, kein Framework:
+reines HTML/CSS/JS, ausgeliefert als **Cloudflare Worker mit statischen Assets**.
+Ein kleiner Worker übernimmt das Kontaktformular und die Video-Auslieferung.
 
 ## Projektstruktur
 
 ```
-index.html          Startseite (alle Inhalte, Sektionen per Anker verlinkt)
-impressum.html       Impressum
-datenschutz.html     Datenschutzerklärung
-css/style.css         Gesamtes Styling (CSS-Variablen für Farben oben in :root)
-js/main.js            Mobile-Menü, Scroll-Reveal, Kontaktformular (mailto)
-assets/logo.png        Logo (optimiert, für Web)
-assets/logo.svg         Original-Logo in hoher Auflösung (Master-Datei)
-assets/favicon.svg      Favicon
-_headers                Cloudflare-Cache-Header
-robots.txt, sitemap.xml  SEO-Basics
+index.html            Startseite (Video-Banner, Workshop, Wer wir sind, Kontakt)
+wer-wir-sind.html     Team, Vision, Download der Vereinsstatuten
+workshops.html        Workshops (aktuelle und in Planung)
+initiativen.html      Initiativen (Video-Banner, Inhalte folgen)
+lernmaterial.html     Lernmaterial (Downloads folgen)
+kontakt.html          Kontaktformular, E-Mail, Social Media
+impressum.html        Impressum
+datenschutz.html      Datenschutzerklärung
+ki-oder-real.html     Quiz (nicht verlinkt, noindex, Platzhalterdaten)
+404.html              Fehlerseite
+
+css/dashboard.css     Gesamtes Styling (Design-Tokens oben in :root)
+js/                   nav.js, mail.js, hero-video.js, workshop-video.js, banner.js,
+                      contact-form.js, intro-concept.js, ki-oder-real.js
+assets/               Bilder, Videos, Favicons, PDF
+worker/               Cloudflare Worker (index.js, contact.js, mail.js, Tests)
+wrangler.toml         Worker- und Asset-Konfiguration
+_headers              Sicherheits- und Cache-Header
+.assetsignore         Dateien, die nicht öffentlich ausgeliefert werden
+robots.txt, sitemap.xml
 ```
 
 ## Inhalte anpassen
 
-Alles ist direkt im HTML editierbar, es gibt kein CMS. Die wichtigsten Stellen:
+Alles steht direkt im HTML, es gibt kein CMS.
 
-- **Workshops**: in `index.html` im Abschnitt `<section id="workshops">` –
-  einfach weitere `<article class="workshop-card">`-Blöcke kopieren/anpassen.
-- **Vorstand/Team**: `<section id="team">` – Namen unter "Name folgt" eintragen.
-- **Kontakt-E-Mail**: aktuell `info@klickundklar.at` – kommt an mehreren
-  Stellen vor (Header ist nicht betroffen), am schnellsten per Suchen &
-  Ersetzen in allen `.html`-Dateien.
-- **Impressum**: `impressum.html` – ZVR-Zahl, Adresse und Obmann/Obfrau
-  ergänzen, sobald der Verein bei der Vereinsbehörde registriert ist.
-- **Farben**: `css/style.css`, ganz oben unter `:root` (`--navy`, `--orange`,
-  `--teal`).
+- **E-Mail-Adresse**: wird per `a.js-mail[data-u][data-d]` zusammengesetzt
+  (Spam-Schutz, `js/mail.js`). Anzeige: `mazal.valentin ( @ ) gmail.com`.
+- **Team**: `wer-wir-sind.html`. Fotos als WebP in `assets/`, mit `width`/`height`.
+- **Farben, Abstände**: Tokens am Anfang von `css/dashboard.css`.
+- **Videos**: als H.264-MP4 (1280 und 640 px breit, `-movflags +faststart`) plus
+  WebP-Standbild. Neue Dateinamen verwenden (z. B. `-v3`), damit kein alter
+  Cache greift.
+- **Sitemap**: neue Seiten in `sitemap.xml` eintragen (URLs ohne `.html`).
 
 ## Lokal ansehen
 
-Kein Build nötig, einfach ein Verzeichnis servieren, z. B.:
-
 ```bash
-python3 -m http.server 8080
+python3 -m http.server 8081
 ```
 
-Dann `http://localhost:8080` öffnen.
+Dann `http://localhost:8081` öffnen. Der Worker (Formular, Video-Range) läuft
+lokal nicht mit; dafür `npx wrangler dev`.
 
-## Deployment: GitHub → Cloudflare Pages → klickundklar.at
+## Deployment
 
-### 1. GitHub-Repository erstellen und Code pushen
-
-```bash
-gh repo create klickundklar-website --private --source=. --remote=origin --push
-```
-
-Falls `gh` (GitHub CLI) nicht installiert/eingeloggt ist: Repository manuell
-auf [github.com/new](https://github.com/new) anlegen (z. B.
-`klickundklar-website`), dann:
+Manuell, nach `git push`:
 
 ```bash
-git remote add origin https://github.com/<dein-github-name>/klickundklar-website.git
-git branch -M main
-git push -u origin main
+npx wrangler deploy
 ```
 
-### 2. Cloudflare Pages mit GitHub verbinden
+Die automatische Bereitstellung über GitHub hat zeitweise gehangen. Nach jedem
+Deploy kurz prüfen: `curl -sL https://klickundklar.at/ | head`.
 
-1. In Cloudflare einloggen → **Workers & Pages** → **Create application** →
-   **Pages** → **Connect to Git**.
-2. Das GitHub-Repository `klickundklar-website` auswählen und autorisieren.
-3. Build-Einstellungen:
-   - **Framework preset**: `None`
-   - **Build command**: *(leer lassen)*
-   - **Build output directory**: `/`
-4. **Save and Deploy** – Cloudflare baut die Seite und stellt sie unter einer
-   `*.pages.dev`-URL bereit. Jeder Push auf `main` deployed automatisch neu.
+Hinweise:
 
-### 3. Eigene Domain klickundklar.at verbinden
-
-Da die Domain bei **netcup** liegt (nicht bei Cloudflare als DNS-Zone), gibt
-es zwei Wege:
-
-**Variante A – Domain zu Cloudflare umziehen (empfohlen, einfacher & schneller):**
-1. Im Cloudflare-Dashboard: **Add a site** → `klickundklar.at` hinzufügen
-   (kostenloser Plan reicht).
-2. Cloudflare zeigt zwei Nameserver an (z. B. `xxx.ns.cloudflare.com`).
-3. Bei netcup im **Domain-Verwaltung**-Bereich die Nameserver der Domain auf
-   die von Cloudflare angezeigten ändern.
-4. Sobald die Umstellung aktiv ist (kann bis zu 24h dauern, meist schneller):
-   im Cloudflare-Pages-Projekt unter **Custom domains** → `klickundklar.at`
-   und `www.klickundklar.at` hinzufügen. Cloudflare setzt die nötigen
-   DNS-Einträge automatisch.
-
-**Variante B – Nameserver bei netcup belassen, nur DNS-Einträge setzen:**
-1. Im Cloudflare-Pages-Projekt unter **Custom domains** die Domain
-   `klickundklar.at` hinzufügen – Cloudflare zeigt dir den nötigen
-   `CNAME`-Zieleintrag (z. B. `klickundklar-website.pages.dev`).
-2. Bei netcup im DNS-Verwaltungsbereich der Domain:
-   - `CNAME` (oder bei manchen Anbietern "ALIAS"/"ANAME" für die Root-Domain)
-     `@` → `klickundklar-website.pages.dev`
-   - `CNAME www` → `klickundklar-website.pages.dev`
-   - Falls netcup keine CNAME-Weiterleitung auf Root-Ebene erlaubt: netcups
-     eigene Weiterleitungsfunktion nutzen oder auf Variante A wechseln.
-
-Variante A ist robuster (volles Cloudflare-Feature-Set, automatisches SSL,
-Caching) und wird empfohlen.
-
-### 4. Danach
-
-- SSL/TLS-Zertifikat wird von Cloudflare automatisch ausgestellt (kann
-  einige Minuten dauern).
-- Jede Änderung: lokal committen & `git push` → Cloudflare deployed
-  automatisch neu.
-
-## Rechtliches (offene Punkte)
-
-- ZVR-Zahl in `impressum.html` ergänzen, sobald der Verein registriert ist.
-- Namen des Vorstands (Obmann/Obfrau, Kassier:in, Schriftführer:in) in
-  `index.html` (`#team`) und `impressum.html` ergänzen.
-- Vereinsadresse in `impressum.html` ergänzen.
-
+- `.assetsignore` hält Entwicklungsdateien und unbenutzte Originale aus der
+  öffentlichen Auslieferung.
+- `.mp4`-Dateien laufen über den Worker (`run_worker_first`), weil Safari/iOS
+  Videos nur mit Range-Antworten (HTTP 206) abspielt.
+- `_headers` setzt `X-Content-Type-Options`, `X-Frame-Options`,
+  `Referrer-Policy`, `Permissions-Policy` und die Cache-Zeiten.
 
 ## Kontaktformular (Cloudflare Worker)
 
 Das Formular auf `kontakt.html` sendet an `/api/contact`. Das verarbeitet der
-Worker in `worker/` (Prüfung, Turnstile, Mailversand an `CONTACT_TO`). Lokal
-testen: `node --test worker/contact.test.mjs`.
+Worker in `worker/` (Prüfung, Turnstile, Mailversand an `CONTACT_TO`). Das
+Anliegen („Allgemeine Anfrage“, „Workshop buchen: Für immer Scrollen“) kommt aus
+einer festen Liste. Lokal testen: `node --test worker/contact.test.mjs`.
 
 Einmalige Einrichtung im Cloudflare-Dashboard:
 
@@ -131,8 +85,14 @@ Einmalige Einrichtung im Cloudflare-Dashboard:
    bestätigte Adresse eingetragen sein (die `send_email`-Bindung in
    `wrangler.toml` darf nur an diese Adresse senden).
 2. **Turnstile**: Widget anlegen (Domain `klickundklar.at`).
-   - *Site-Key* (öffentlich) in `js/contact-form.js` bei `TURNSTILE_SITE_KEY` eintragen.
-   - *Secret Key* im Worker als Secret `TURNSTILE_SECRET` hinterlegen
-     (Workers > klickundklar-website > Settings > Variables and Secrets).
+   - *Site-Key* (öffentlich) in `js/contact-form.js` bei `TURNSTILE_SITE_KEY`.
+   - *Secret Key* als Worker-Secret: `npx wrangler secret put TURNSTILE_SECRET`.
    Ohne Secret antwortet der Worker mit 503, ohne Site-Key zeigt die Seite
    einen E-Mail-Hinweis statt des Formulars.
+
+## Rechtliches (offene Punkte)
+
+- Vereinsstatuten (`assets/Vereinsstatuten-Klick-und-Klar.pdf`): Die Datei trägt
+  auf Seite 1 noch den Entwurfs-Hinweis. Durch die eingereichte Fassung ersetzen.
+- Datenschutzerklärung bei neuen Diensten (Analyse, Social-Media-Einbettungen)
+  anpassen.
