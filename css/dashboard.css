@@ -1260,3 +1260,13 @@ main.container,
 
 /* Unterseiten mit Video-Banner: Inhalt darunter mit Abstand */
 .ic-hero-video + .ic-onepager { padding-top: 24px; }
+
+/* Workshop-Kachel mobil: Video oben links, Text in voller Breite darunter */
+@media (max-width: 719px) {
+  .ic-workshop--with-image {
+    grid-template-columns: 1fr;
+    grid-template-areas: "num" "image" "body";
+    grid-template-rows: auto;
+  }
+  .ic-workshop__image--portrait { width: 150px; height: auto; }
+}
