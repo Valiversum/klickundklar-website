@@ -79,7 +79,19 @@
         <div class="ic-onepager__inner">
           <h2 id="fuer-immer-scrollen">Für immer Scrollen</h2>
           <article class="ic-workshop ic-workshop--with-image ic-workshop--feature">
-            <img class="ic-workshop__image" src="/assets/workshop-scrollen.webp" alt="Collage eines Auges, in dem sich ein Social-Media-Feed spiegelt" loading="lazy" />
+            <video
+              class="ic-workshop__image ic-workshop__image--portrait"
+              id="workshop-video"
+              src="/assets/workshop-scrollen.mp4"
+              poster="/assets/workshop-scrollen-poster.webp"
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+              role="img"
+              aria-label="Auge, in dem sich ein Social-Media-Feed spiegelt"
+            ></video>
             <div class="ic-workshop__body">
               <div class="ic-workshop__head">
                 <span class="ic-workshop__partner">mit ImpAkt</span>
@@ -87,19 +99,49 @@
               <p class="ic-workshop__question">
                 Warum hängst du am Handy? Und wer hat das so gebaut?
               </p>
-              <p class="ic-workshop__desc">
-                Du findest heraus, wie Algorithmen entscheiden, was du siehst, warum dein
-                Gehirn bei jedem Swipe belohnt wird und wie ein Video gebaut ist, damit du
-                dranbleibst. Du testest es an dir selbst und schaust dein eigenes
-                Nutzungsverhalten an.
-              </p>
-              <p class="ic-workshop__learn">
-                <strong>Du lernst</strong>
-                Wie Social Media funktioniert und was es mit dir macht.
-              </p>
+              <ul class="ic-workshop__facts">
+                <li><span>Zielgruppe</span>ab 12/13 Jahren (ab 7. Schulstufe)</li>
+                <li><span>Dauer</span>3 Stunden</li>
+              </ul>
+
+              <details class="ic-team__more ic-workshop__more">
+                <summary>Mehr erfahren</summary>
+                <div class="ic-team__more-body ic-workshop__more-body">
+                <h3 class="ic-workshop__sub">Was?</h3>
+                <p class="ic-workshop__desc">
+                  In diesem Workshop machen wir den Algorithmus erlebbar: Die Schüler:innen spüren
+                  selbst, wie Social-Media-Feeds sie festhalten und warum es so schwer ist, mit dem
+                  Scrollen aufzuhören. Sie verstehen, wie Algorithmen funktionieren und wie
+                  Online-Inhalte den Dopaminhaushalt durcheinanderbringen – und bekommen so ein
+                  echtes Verständnis dafür, was dabei in ihrem Kopf passiert. Daraus entstehen
+                  Einsicht in die eigene Beeinflussbarkeit und Strategien für einen
+                  selbstbestimmten Umgang mit dem Smartphone.
+                </p>
+
+                <h3 class="ic-workshop__sub">Wie?</h3>
+                <p class="ic-workshop__desc">
+                  Zum Einstieg schauen die Schüler:innen auf ihr eigenes Nutzungsverhalten. In
+                  interaktiven Übungen erleben sie am eigenen Körper, was die Content-Flut mit der
+                  Konzentration macht, finden ihre persönlichen Glücksmomente und sehen, wie sich
+                  der Dopamin-Speicher durch passives Scrollen leert. Gemeinsam blicken wir hinter
+                  die Kulissen der Plattformen und entlarven die psychologischen Tricks, mit denen
+                  sie uns bei der Stange halten.
+                </p>
+                <p class="ic-workshop__desc">
+                  Ganz ohne erhobenen Zeigefinger und ohne Vorschriften: Am Ende entwickeln wir
+                  gemeinsam Strategien, um die Kontrolle über den eigenen Social-Media-Konsum
+                  zurückzugewinnen.
+                </p>
+                </div>
+              </details>
+
               <p class="ic-workshop__book">
-                <a href="https://www.impakt.at/kontakt" target="_blank" rel="noopener">Hier über ImpAkt buchen →</a>
-                <a href="/kontakt.html?anliegen=workshop-scrollen">Hier direkt buchen (für angepasste Angebote) →</a>
+                <a href="https://www.impakt.at/kontakt" target="_blank" rel="noopener">
+                  Hier über ImpAkt buchen →
+                </a>
+                <a href="/kontakt.html?anliegen=workshop-scrollen">
+                  Hier direkt buchen (für angepasste Angebote) →
+                </a>
               </p>
             </div>
           </article>
@@ -153,6 +195,7 @@
   <script src="/js/nav.js"></script>
   <script src="/js/mail.js"></script>
   <script src="/js/hero-video.js"></script>
+  <script src="/js/workshop-video.js"></script>
   <script src="/js/banner.js"></script>
 </body>
 </html>

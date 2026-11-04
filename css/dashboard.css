@@ -1270,3 +1270,9 @@ main.container,
   }
   .ic-workshop__image--portrait { width: 150px; height: auto; }
 }
+
+/* Startseite: Workshop-Kachel identisch zur Workshop-Seite (ohne Nummer) */
+.ic-workshop.ic-workshop--feature { grid-template-columns: 150px 1fr; grid-template-areas: "image body"; grid-template-rows: auto; }
+@media (max-width: 719px) {
+  .ic-workshop.ic-workshop--feature { grid-template-columns: 1fr; grid-template-areas: "image" "body"; }
+}
