@@ -1276,3 +1276,35 @@ main.container,
 @media (max-width: 719px) {
   .ic-workshop.ic-workshop--feature { grid-template-columns: 1fr; grid-template-areas: "image" "body"; }
 }
+
+/* Workshop-Kachel mobil v2: Titel oben, Video links, Frage + Eckdaten rechts daneben, Rest darunter */
+@media (max-width: 719px) {
+  .ic-workshop.ic-workshop--with-image {
+    grid-template-columns: 130px 1fr;
+    grid-template-areas:
+      "num num"
+      "head head"
+      "image question"
+      "image facts"
+      "more more"
+      "book book";
+    grid-template-rows: auto auto auto 1fr auto auto;
+    align-items: start;
+  }
+  .ic-workshop.ic-workshop--feature {
+    grid-template-areas:
+      "head head"
+      "image question"
+      "image facts"
+      "more more"
+      "book book";
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+  .ic-workshop--with-image .ic-workshop__body { display: contents; }
+  .ic-workshop--with-image .ic-workshop__head { grid-area: head; margin-bottom: 0; }
+  .ic-workshop--with-image .ic-workshop__question { grid-area: question; margin: 0; font-size: 14px; }
+  .ic-workshop--with-image .ic-workshop__facts { grid-area: facts; flex-direction: column; margin: 0; }
+  .ic-workshop--with-image .ic-workshop__more { grid-area: more; margin-top: 0; }
+  .ic-workshop--with-image .ic-workshop__book { grid-area: book; margin-top: 0; }
+  .ic-workshop__image--portrait { width: 130px; }
+}
