@@ -12,7 +12,9 @@
 
   if (reduced) return; // Poster bleibt stehen, kein Video wird geladen.
 
-  video.src = small ? "/assets/hero-banner-v2-640.mp4" : "/assets/hero-banner-v2-1280.mp4";
+  const big = video.dataset.src || "/assets/hero-banner-v2-1280.mp4";
+  const lite = video.dataset.srcSmall || "/assets/hero-banner-v2-640.mp4";
+  video.src = small ? lite : big;
   const play = video.play();
   if (play && play.catch) play.catch(() => { /* Autoplay blockiert: Poster bleibt */ });
 })();

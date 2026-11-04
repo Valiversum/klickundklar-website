@@ -1247,3 +1247,16 @@ main.container,
 .ic-workshop__facts li { display: flex; flex-direction: column; gap: 1px; }
 .ic-workshop__facts span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .ic-workshop__sub { margin: 12px 0 4px; font-size: 14px; font-weight: 700; }
+
+/* Workshop-Kachel: Video im Originalformat (2:3), Text ausklappbar */
+.ic-workshop--with-image { grid-template-columns: 150px 1fr; }
+.ic-workshop__image--portrait { height: auto; aspect-ratio: 2 / 3; object-fit: contain; align-self: start; background: var(--bg2); }
+.ic-workshop__more { margin-top: 8px; }
+.ic-workshop__more-body .ic-workshop__sub:first-child { margin-top: 4px; }
+.ic-workshop__more-body .ic-workshop__desc { font-size: 13px; }
+@media (max-width: 719px) {
+  .ic-workshop__image--portrait { width: 150px; height: auto; }
+}
+
+/* Unterseiten mit Video-Banner: Inhalt darunter mit Abstand */
+.ic-hero-video + .ic-onepager { padding-top: 24px; }

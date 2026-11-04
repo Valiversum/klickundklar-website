@@ -36,12 +36,20 @@
     </header>
 
     <main>
+      <section class="ic-hero-video">
+        <video class="ic-hero-video__media" id="hero-video" muted loop playsinline preload="auto"
+               poster="/assets/initiativen-banner-poster.webp"
+               data-src="/assets/initiativen-banner-1280.mp4" data-src-small="/assets/initiativen-banner-640.mp4"
+               aria-hidden="true" tabindex="-1"></video>
+        <div class="ic-hero-video__shade" aria-hidden="true"></div>
+        <div class="ic-hero-video__inner">
+          <h1 class="ic-hero-video__title">Unsere Initiativen</h1>
+        </div>
+      </section>
+
       <section class="ic-onepager">
         <div class="ic-onepager__inner">
           <span class="ic-onepager__status">Woran wir gerade arbeiten</span>
-          <span class="ic-onepager__eyebrow">Initiativen</span>
-          <h1 class="ic-onepager__title">Unsere Initiativen</h1>
-
           <div class="ic-onepager__lead">
             <p>
               Hier stellen wir künftig die Initiativen und Kooperationen vor, mit denen Klick
@@ -70,5 +78,6 @@
 
   <script src="/js/nav.js"></script>
   <script src="/js/mail.js"></script>
+  <script src="/js/hero-video.js"></script>
 </body>
 </html>
