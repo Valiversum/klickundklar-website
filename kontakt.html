@@ -69,6 +69,13 @@
 
             <form class="ic-form" id="contact-form" novalidate hidden>
               <div class="ic-field">
+                <label for="cf-topic">Anliegen</label>
+                <select id="cf-topic" name="topic">
+                  <option value="general" selected>Allgemeine Anfrage</option>
+                  <option value="workshop-scrollen">Workshop buchen: Für immer Scrollen</option>
+                </select>
+              </div>
+              <div class="ic-field">
                 <label for="cf-name">Name</label>
                 <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required />
               </div>

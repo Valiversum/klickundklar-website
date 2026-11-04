@@ -4,6 +4,12 @@
 import { validate, buildRawEmail } from "./mail.js";
 
 const MAX_BODY_BYTES = 20000;
+// Erlaubte Anliegen (feste Liste, freier Text wird nie in den Betreff uebernommen).
+const TOPICS = {
+  general: "Allgemeine Anfrage",
+  "workshop-scrollen": "Workshop buchen: Für immer Scrollen",
+};
+
 const TURNSTILE_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 function json(body, status = 200, extra = {}) {
@@ -69,11 +75,12 @@ export async function handleContact(request, env, { EmailMessage, fetchImpl = fe
   }
 
   const { name, email, message } = checked.value;
+  const topic = Object.hasOwn(TOPICS, data.topic) ? TOPICS[data.topic] : TOPICS.general;
   const fromAddress = env.CONTACT_FROM;
   const to = env.CONTACT_TO;
   const body =
     `Neue Nachricht über das Kontaktformular\n\n` +
-    `Name:   ${name}\nE-Mail: ${email}\n\n${message}\n`;
+    `Anliegen: ${topic}\nName:     ${name}\nE-Mail:   ${email}\n\n${message}\n`;
 
   try {
     const rawEmail = buildRawEmail({
@@ -81,7 +88,7 @@ export async function handleContact(request, env, { EmailMessage, fetchImpl = fe
       fromName: "Klick & Klar Website",
       to,
       replyTo: email,
-      subject: `Kontaktformular: ${name}`,
+      subject: `Kontaktformular (${topic}): ${name}`,
       body,
     });
     await env.EMAIL.send(new EmailMessage(fromAddress, to, rawEmail));

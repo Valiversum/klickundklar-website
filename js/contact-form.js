@@ -19,6 +19,13 @@
   }
   form.hidden = false;
 
+  // Vorauswahl ueber Link, z. B. /kontakt.html?anliegen=workshop-scrollen
+  try {
+    const wanted = new URLSearchParams(location.search).get("anliegen");
+    const sel = document.getElementById("cf-topic");
+    if (wanted && sel && [...sel.options].some((o) => o.value === wanted)) sel.value = wanted;
+  } catch (e) {}
+
   const submitBtn = document.getElementById("contact-submit");
   const errorEl = document.getElementById("contact-error");
   const successEl = document.getElementById("contact-success");
@@ -81,6 +88,7 @@
 
     const data = new FormData(form);
     const payload = {
+      topic: data.get("topic"),
       name: data.get("name"),
       email: data.get("email"),
       message: data.get("message"),

@@ -811,6 +811,7 @@ main.container,
 .ic-field { display: grid; gap: 4px; }
 .ic-field label { font-size: 13px; font-weight: 700; }
 .ic-field input,
+.ic-field select,
 .ic-field textarea {
   width: 100%;
   padding: 10px 12px;
@@ -823,8 +824,10 @@ main.container,
 }
 .ic-field textarea { min-height: 140px; resize: vertical; }
 .ic-field input:focus,
+.ic-field select:focus,
 .ic-field textarea:focus { outline: none; border-color: var(--blue); }
 .ic-field input:focus-visible,
+.ic-field select:focus-visible,
 .ic-field textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 0; }
 
 /* Honeypot: für Menschen unsichtbar, für Bots vorhanden */

@@ -117,3 +117,30 @@ test("handler: ungültige Eingabe -> 400 vor Turnstile", async () => {
   assert.equal(res.status, 400);
   assert.equal(called, false);
 });
+
+function decodeMail(m) {
+  const raw = typeof m.raw === "string" ? m.raw : new TextDecoder().decode(m.raw);
+  const [head, body] = raw.split("\r\n\r\n");
+  const subj = /Subject: =\?UTF-8\?B\?([^?]+)\?=/.exec(head);
+  const dec = (b64) => Buffer.from(b64.replace(/\s+/g, ""), "base64").toString("utf8");
+  return { head, subject: subj ? dec(subj[1]) : (/Subject: (.*)/.exec(head) || [])[1] || "", text: dec(body) };
+}
+
+test("handleContact: Anliegen Workshop landet im Betreff und Text", async () => {
+  const { env, sent } = makeEnv();
+  const res = await handleContact(req({ ...good, topic: "workshop-scrollen" }), env, deps());
+  assert.equal(res.status, 200);
+  const m = decodeMail(sent[0]);
+  assert.match(m.subject, /Workshop buchen: Für immer Scrollen/);
+  assert.match(m.text, /Anliegen: Workshop buchen: Für immer Scrollen/);
+});
+
+test("handleContact: unbekanntes Anliegen faellt auf Allgemein zurueck, keine Header-Injection", async () => {
+  const { env, sent } = makeEnv();
+  const res = await handleContact(req({ ...good, topic: "x\r\nBcc: evil@x.y" }), env, deps());
+  assert.equal(res.status, 200);
+  const m = decodeMail(sent[0]);
+  assert.match(m.subject, /Allgemeine Anfrage/);
+  assert.doesNotMatch(m.head, /Bcc: evil/);
+  assert.doesNotMatch(m.text, /evil/);
+});
