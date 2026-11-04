@@ -1308,3 +1308,42 @@ main.container,
   .ic-workshop--with-image .ic-workshop__book { grid-area: book; margin-top: 0; }
   .ic-workshop__image--portrait { width: 130px; }
 }
+
+/* Startseite: Workshop-Bild (statt Video), Spalte wie frueher */
+.ic-workshop.ic-workshop--feature .ic-workshop__image:not(.ic-workshop__image--portrait) { height: 100%; min-height: 160px; object-fit: cover; align-self: stretch; }
+@media (min-width: 720px) {
+  .ic-workshop.ic-workshop--feature { grid-template-columns: 200px 1fr; }
+}
+@media (max-width: 719px) {
+  .ic-workshop.ic-workshop--feature { grid-template-columns: 130px 1fr; }
+  .ic-workshop.ic-workshop--feature .ic-workshop__image:not(.ic-workshop__image--portrait) { height: 100%; align-self: stretch; }
+}
+
+/* Vereinsstatuten: kleiner, mit Download-Symbol */
+.ic-download { max-width: 340px; gap: 12px; margin-top: 22px; padding: 10px 12px; border-top-width: 3px; }
+.ic-download__icon { width: 36px; height: 36px; padding: 8px; box-sizing: border-box; display: block; font-size: 0; }
+.ic-download__title { font-size: 14px; }
+.ic-download__meta { font-size: 12px; }
+
+/* Social-Icons Kontaktseite */
+.ic-social__name { display: inline-flex; align-items: center; gap: 10px; }
+.ic-social__icon { flex: none; display: block; color: var(--ink); }
+
+/* Geplante Workshops mobil: Titel, Bild (3:2) in voller Breite, Text darunter */
+@media (max-width: 719px) {
+  .ic-workshop.ic-workshop--planned {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    grid-template-rows: auto;
+    align-items: start;
+  }
+  .ic-workshop--planned .ic-workshop__body { display: contents; }
+  .ic-workshop--planned .ic-workshop__body > * { grid-area: auto; order: 5; margin-top: 0; }
+  .ic-workshop--planned .ic-workshop__num { grid-area: auto; order: 1; justify-self: start; }
+  .ic-workshop--planned .ic-workshop__planned { order: 2; justify-self: start; margin-bottom: 0; }
+  .ic-workshop--planned .ic-workshop__head { order: 3; margin-bottom: 0; }
+  .ic-workshop--planned .ic-workshop__image { grid-area: auto; order: 4; width: 100%; height: auto; aspect-ratio: 3 / 2; }
+}
+@media (max-width: 719px) {
+  .ic-workshop--planned .ic-workshop__desc { font-size: 14px; }
+}
