@@ -1356,3 +1356,8 @@ main.container,
 @media (prefers-reduced-motion: reduce) {
   .ic-hero-video__title { transition: none; }
 }
+
+/* Initiativen: Status-Chip und Text darunter mit sauberem Abstand */
+.ic-hero-video + .ic-onepager .ic-onepager__status { display: table; margin: 0 0 14px; }
+.ic-hero-video + .ic-onepager .ic-onepager__lead p { margin: 0 0 16px; }
+.ic-hero-video + .ic-onepager .ic-onepager__soon { display: table; margin: 0; }
