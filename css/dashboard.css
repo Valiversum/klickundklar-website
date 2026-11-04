@@ -1203,3 +1203,8 @@ main.container,
 @media (min-width: 900px) {
   .ic-contact { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; }
 }
+
+/* Mobil: Formular zuerst, dann Direkt schreiben, dann Social Media */
+@media (max-width: 899px) {
+  .ic-contact__form { order: -1; }
+}
