@@ -1126,3 +1126,52 @@ main.container,
 /* Logo-Zeichen neben der Wortmarke im Menue */
 .ic-nav__mark { display: inline-flex; align-items: center; gap: 8px; }
 .ic-nav__logo { display: block; width: auto; height: 21px; }
+
+/* Logo im Footer und im Banner-Untertitel */
+.ic-footer__brand { display: inline-flex; align-items: center; gap: 6px; }
+.ic-footer__brand img { display: block; width: auto; height: 14px; opacity: 0.55; }
+.ic-hero-video__subtitle { display: flex; align-items: center; gap: 8px; }
+.ic-hero-video__logo { display: block; width: auto; height: 1.15em; filter: invert(1); }
+
+/* Desktop-Menue aufgeraeumt: Textlinks statt Kaesten, Balken unter dem aktiven Punkt */
+@media (min-width: 720px) {
+  .ic-nav__row { flex-wrap: nowrap; gap: 24px; padding-top: 0; padding-bottom: 0; min-height: 60px; }
+  .ic-nav__menu { margin-left: auto; }
+  .ic-nav__links { flex-wrap: nowrap; align-items: center; gap: 2px; }
+  .ic-nav__links a {
+    min-height: 60px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    white-space: nowrap;
+  }
+  .ic-nav__links a:hover { background: transparent; color: var(--ink); }
+  .ic-nav__links a[aria-current="page"],
+  .ic-nav__links a.ic-nav__home,
+  .ic-nav__links a.ic-nav__home[aria-current="page"] { background: transparent; color: var(--ink); font-weight: 600; }
+  .ic-nav__links a.ic-nav__home { font-weight: 500; }
+  .ic-nav__links a[aria-current="page"] { font-weight: 700; }
+  .ic-nav__links a[aria-current="page"]::before {
+    top: auto;
+    bottom: -1px;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    border-radius: 0;
+  }
+  .ic-nav__links a.ic-nav__home[aria-current="page"]::before { left: 12px; right: 12px; }
+  .ic-nav__links li:last-child { margin-left: 8px; }
+  .ic-nav__links a.ic-nav__cta {
+    min-height: 36px;
+    padding: 0 16px;
+    color: #fff;
+    background: var(--blue);
+    border-radius: var(--radius);
+    font-weight: 700;
+  }
+  .ic-nav__links a.ic-nav__cta:hover { background: var(--blue); color: #fff; opacity: 0.92; }
+  .ic-nav__links a.ic-nav__cta[aria-current="page"]::before { display: none; }
+}
