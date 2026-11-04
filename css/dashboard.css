@@ -1351,11 +1351,8 @@ main.container,
 /* Banner-Titel auf Unterseiten: groesser; auf Initiativen erst beim Standbild eingeblendet */
 .ic-hero-video--page .ic-hero-video__title { font-size: clamp(32px, 8vw, 64px); }
 .ic-hero-video--page .ic-hero-video__inner { padding-bottom: 32px; }
-.ic-hero-video__title { transition: opacity 0.7s ease; }
-.ic-hero-video--pending .ic-hero-video__title { opacity: 0; }
-@media (prefers-reduced-motion: reduce) {
-  .ic-hero-video__title { transition: none; }
-}
+/* Titel erscheint sofort (ohne Einblenden), sobald das Standbild beginnt */
+.ic-hero-video--pending .ic-hero-video__title { visibility: hidden; }
 
 /* Initiativen: Status-Chip und Text darunter mit sauberem Abstand */
 .ic-hero-video + .ic-onepager .ic-onepager__status { display: table; margin: 0 0 14px; }
