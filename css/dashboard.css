@@ -1310,3 +1310,13 @@ p { margin: 0 0 10px; }
 .ic-hero-video + .ic-onepager .ic-onepager__status { display: table; margin: 0 0 14px; }
 .ic-hero-video + .ic-onepager .ic-onepager__lead p { margin: 0 0 16px; }
 .ic-hero-video + .ic-onepager .ic-onepager__soon { display: table; margin: 0; }
+
+/* Lernmaterial: Download-Buttons */
+.ic-material__dl { gap: 8px; }
+.ic-material__dl svg { flex: none; }
+.ic-material__size { font-weight: 400; opacity: 0.85; }
+.ic-material__info { flex: 1 1 260px; min-width: 0; }
+.ic-material__dl { min-width: 196px; justify-content: center; }
+@media (max-width: 479px) {
+  .ic-material__dl { width: 100%; }
+}
