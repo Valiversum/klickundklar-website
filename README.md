@@ -35,7 +35,7 @@ robots.txt, sitemap.xml
 Alles steht direkt im HTML, es gibt kein CMS.
 
 - **E-Mail-Adresse**: wird per `a.js-mail[data-u][data-d]` zusammengesetzt
-  (Spam-Schutz, `js/mail.js`). Anzeige: `mazal.valentin ( @ ) gmail.com`.
+  (Spam-Schutz, `js/mail.js`). Anzeige: `hello ( @ ) valentinmazal.at`.
 - **Team**: `wer-wir-sind.html`. Fotos als WebP in `assets/`, mit `width`/`height`.
 - **Farben, Abstände**: Tokens am Anfang von `css/dashboard.css`.
 - **Videos**: als H.264-MP4 (1280 und 640 px breit, `-movflags +faststart`) plus
