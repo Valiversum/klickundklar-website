@@ -81,7 +81,7 @@ einer festen Liste. Lokal testen: `node --test worker/contact.test.mjs`.
 
 Einmalige Einrichtung im Cloudflare-Dashboard:
 
-1. **Email Routing**: Die Zieladresse (`mazal.valentin@gmail.com`) muss dort als
+1. **Email Routing**: Die Zieladresse (`hello@valentinmazal.at`) muss dort als
    bestätigte Adresse eingetragen sein (die `send_email`-Bindung in
    `wrangler.toml` darf nur an diese Adresse senden).
 2. **Turnstile**: Widget anlegen (Domain `klickundklar.at`).

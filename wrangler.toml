@@ -11,12 +11,12 @@ not_found_handling = "404-page"
 
 # Kontaktformular (/api/contact)
 [vars]
-CONTACT_TO = "mazal.valentin@gmail.com"
+CONTACT_TO = "hello@valentinmazal.at"
 CONTACT_FROM = "kontakt@klickundklar.at"
 
 [[send_email]]
 name = "EMAIL"
-destination_address = "mazal.valentin@gmail.com"
+destination_address = "hello@valentinmazal.at"
 
 # Secret (nicht im Repo): TURNSTILE_SECRET
 # -> Cloudflare Dashboard > Workers > klickundklar-website > Settings > Variables and Secrets
