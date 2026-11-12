@@ -5,8 +5,9 @@ compatibility_date = "2026-09-03"
 [assets]
 directory = "./"
 binding = "ASSETS"
-# Videos laufen ueber den Worker (Range/206-Support fuer Safari/iOS).
-run_worker_first = ["/assets/*.mp4"]
+# Immer ueber den Worker: Kontaktformular-API und Videos (Range/206-Support fuer Safari/iOS).
+# Ohne "/api/*" liefert not_found_handling = "404-page" eine 405-Antwort, bevor der Worker laeuft.
+run_worker_first = ["/api/*", "/assets/*.mp4"]
 not_found_handling = "404-page"
 
 # Kontaktformular (/api/contact)
